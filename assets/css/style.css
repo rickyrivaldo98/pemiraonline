@@ -1,0 +1,169 @@
+nav {
+	background-color: #b93b48;
+	position: fixed;
+}
+
+.navbar-brand,
+.nav-link {
+	color: white !important;
+}
+
+.navbar-brand {
+	font-weight: 700;
+}
+
+.nav-link {
+	margin-left: 30px;
+}
+
+#header h1 {
+	font-size: 70px;
+	font-weight: 500;
+	text-align: left;
+}
+
+#header {
+	/* background-color: #daab43; */
+	background-image: url(../img/Image2.png);
+	background-attachment: fixed;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+	color: white;
+	background-repeat: no-repeat;
+	/* background-attachment: scroll; */
+	background-position: center center;
+	background-size: cover;
+}
+
+#header p {
+	/* font-size: px; */
+	padding-top: 10px;
+	/* padding-left: 100px; */
+	word-break: break-all;
+	max-width: 1000px;
+	text-align: left;
+}
+
+#header:after {
+	z-index: 0;
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-image: url(../img/wave-bottom.svg);
+	height: 450px;
+	background-repeat: no-repeat;
+	transform-origin: bottom;
+	animation: animateWave 2500ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.logonav img {
+	/* margin-top: 10px; */
+	/* margin-left: auto; */
+	/* text-align: right; */
+	/* margin-left: 1vh; */
+	color: black;
+	width: 70%;
+}
+
+.tulisannav {
+	margin-top: 90px;
+	color: black;
+}
+
+.regis {
+	color: black;
+}
+
+.regis a {
+	z-index: 1;
+	position: relative;
+	color: white;
+	background-color: #b93b48;
+	border-radius: 40px;
+}
+
+.konten {
+	margin-top: 100px;
+}
+
+.gambar_konten {
+	width: 100%;
+	height: auto;
+}
+
+.gambar_login {
+	width: 50%;
+}
+
+.gambar_dashboard {
+	width: 80%;
+	border: 5px solid whitesmoke;
+	border-radius: 40px;
+}
+
+.gambar_voting {
+	/* width: 548.66px; */
+	padding: 10px 10px 10px 10px;
+	height: 300.41px;
+	min-width: 100%;
+	min-height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+[type="radio"] + .card {
+	cursor: pointer;
+}
+
+[type="radio"]:checked + .card {
+	outline: 5px solid #f00;
+}
+
+.hasil-vote {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.login input {
+	padding: 10px 10px 10px 40px;
+	border-radius: 20px;
+	font-size: 25px;
+}
+
+.ayo-pilih button {
+	background-color: #b93b48;
+	font-size: 50px;
+	border-radius: 40px;
+	border: #b93b48;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-bottom: 30px;
+}
+
+.page-footer {
+	/* @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap"); */
+	color: white !important;
+	font-family: "Montserrat", sans-serif !important;
+	background-color: #b93b48 !important;
+}
+
+.footer-copyright a {
+	transition: 0.3s;
+	color: black;
+}
+
+.footer-copyright a:hover {
+	color: #ff4654;
+}
