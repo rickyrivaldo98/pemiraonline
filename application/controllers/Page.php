@@ -39,6 +39,11 @@ class Page extends CI_Controller
 		$this->load->view('dashboardUser');
 	}
 
+	public function dashboardAdmin()
+	{
+		$this->load->view('admin/dashboardAdmin');
+	}
+
 	public function voting()
 	{
 		$this->load->view('voting');
@@ -47,5 +52,40 @@ class Page extends CI_Controller
 	public function hasilvote()
 	{
 		$this->load->view('hasilvote');
+	}
+
+	public function verifikasi()
+	{
+		$this->load->view('admin/verifikasi');
+	}
+
+	public function listcalonketuabem()
+	{
+		$this->load->view('admin/listcalonketuabem');
+	}
+
+	public function tambahcalonketuabemundip()
+	{
+		$this->load->view('admin/tambahcalonketuabemundip');
+	}
+
+	public function tambahcalonketuabemf()
+	{
+		$this->load->view('admin/tambahcalonketuabemf');
+	}
+
+	public function editcalonketuabemundip()
+	{
+		$this->load->view('admin/editcalonketuabemundip');
+	}
+
+	public function editcalonketuabemf()
+	{
+		$this->load->view('admin/editcalonketuabemf');
+	}
+
+	public function hasilvoteAdmin()
+	{
+		$this->load->view('admin/hasilvoteadmin');
 	}
 }

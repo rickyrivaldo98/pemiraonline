@@ -24,6 +24,34 @@
         <br>
         <button type="button" class="btn btn-danger btn-lg" onclick="history.go(-1);">Kembali</button>
         <h1 class="text-center">HASIL VOTING</h1>
+        <h1 class="text-center">CALON KETUA BEM UNDIP</h1>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <label class="col-4 text-center ">
+                <div class="card ">
+                    <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
+                    <h1>CALON A</h1>
+                    <h3>250 Suara</h3>
+                    <h3>50%</h3>
+                </div>
+            </label>
+            <label class="col-4 text-center ">
+                <p>nanti ada diagram di kolom ini kalo udah ada data wkwkwk
+                </p>
+            </label>
+            <label class="col-4 text-center">
+                <div class="card ">
+                    <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
+                    <h1>CALON B</h1>
+                    <h3>250 Suara</h3>
+                    <h3>50%</h3>
+                </div>
+            </label>
+        </div>
+        <br><br>
+        <h1 class="text-center">HASIL VOTING</h1>
         <h1 class="text-center">CALON KETUA BEM FAKULTAS A</h1>
         <br>
         <br>
