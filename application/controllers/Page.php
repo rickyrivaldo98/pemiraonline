@@ -195,6 +195,9 @@ class Page extends CI_Controller
 
 	public function dashboardAdmin()
 	{
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
 		$this->load->view('admin/dashboardAdmin');
 	}
 
