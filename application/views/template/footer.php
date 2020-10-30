@@ -167,9 +167,23 @@
      }
  </style>
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    
+ <script src="<?php echo base_url().'assets/scripts/jquery.js'?>"></script>
  <script src="<?php echo base_url() . 'assets/modules/aos/aos.js' ?>"></script>
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+ 
+ 
+ <script src="<?php echo base_url().'assets/scripts/jquery.js'?>"></script>
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<?php if ($this->session->flashdata('request_berhasil')) : ?>
+ <script>
+    Swal.fire(
+        'Request Telah Masuk',
+        'Konfirmasi akan dikirimkan melalui email maks 3 x 24 jam! ',
+        'success'
+    )
+</script>
+<?php endif; ?>
 
  <!-- <script>
      var overlay = document.getElementById("overlay");
@@ -260,3 +274,46 @@
          });
      });
  </script> -->
+
+ <!-- Script auto fill ragistrasi -->
+
+ <script type="text/javascript">
+    function autofill_registrasi(){
+        var nim =document.getElementById('nim').value;
+        var not_found = document.getElementById('not_found');
+        $.ajax({
+            url:"<?php echo base_url();?>index.php/Page/get_data_pemilih",
+            method : "POST",
+            data: {nim: nim},
+            dataType : 'json',
+            success:function(data){
+              //console.log(data);
+              if (data != false){ // nim ditemukan
+                    $.each(data, function(key,val){
+                        not_found.style.display='none';
+                        document.getElementById('nama').value=val.nama;
+                        document.getElementById('departemen').value=val.departemen;
+                        document.getElementById('fakultas').value=val.fakultas;
+                        document.getElementById('nama_group').style.display='block';
+                        document.getElementById('departemen_group').style.display='block';
+                        document.getElementById('fakultas_group').style.display='block';
+                        document.getElementById('submit').disabled=false;
+                    });
+                }else{// data tidak ada isinya / nim tidak ditemukan
+                    //console.log('Tidak ditemukan');
+                    document.getElementById('nama').value='';
+                    document.getElementById('departemen').value='';
+                    document.getElementById('fakultas').value='';
+                    document.getElementById('nama_group').style.display='none';
+                    document.getElementById('departemen_group').style.display='none';
+                    document.getElementById('fakultas_group').style.display='none';
+                    not_found.style.display='block';
+                    document.getElementById("not_found").innerHTML = "Data Tidak Ditemukan, <a href='#'> Silahkan Hubungi Operator </a>";
+                    document.getElementById('submit').disabled=true;
+                  }
+                
+            }
+        });              
+    }
+ </script>
+ <!-- END Script auto fill ragistrasi -->

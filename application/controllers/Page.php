@@ -32,7 +32,122 @@ class Page extends CI_Controller
 
 	public function registrasi()
 	{
-		$this->load->view('registrasi');
+		$this->load->model('m_registrasi');
+		$data['title'] = 'Registrasi';
+		$config = array(
+			array(
+				'field' => 'nim',
+				'label' => 'Nim',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'NIM Tidak Boleh Kosong',              
+				),
+			),
+			array(
+				'field' => 'password',
+				'label' => 'Password',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'Password Tidak Boleh Kosong',
+				),
+			),
+			array(
+				'field' => 'email',
+				'label' => 'Email',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'Email Tidak Boleh Kosong',
+				),
+			),
+   
+		);
+		$this->form_validation->set_rules($config);
+		if( $this->form_validation->run() == FALSE){
+			$this->load->view('registrasi');
+		}else{
+
+			$nim = $this->input->post('nim', true);
+			$tabel = $this->input->post('departemen', true);
+			$password = $this->input->post('password', true);
+			$email = $this->input->post('email', true);
+
+			// $lokasi = './ktm';
+			// $foto = $_FILES['foto'];
+        	// $nama_foto = $nim;
+        	// if (!empty($_FILES['foto']['name'])) {
+	        //     $config['upload_path'] = $lokasi;
+	        //     $config['allowed_types'] = 'jpeg|jpg|png';
+	        //     $config['file_name'] = $nama_foto;
+	        //     $config['overwrite']     = true;
+	        //     $config['max_size']      = 1024;
+
+	        //     $this->load->library('upload', $config);
+	        //     if (!$this->upload->do_upload('foto')) {
+	        //         $this->session->set_flashdata('gagal_upload_foto', 'Tidak Sesuai Format');
+	        //         redirect('Page/registrasi');
+	        //     } else {
+	        //         //unlink($lokasi."/$row->foto");
+	        //         $foto = $this->upload->data("file_name");
+	        //     }
+	        // }else{
+	        // 	$this->session->set_flashdata('no_foto', 'Harap Masukan Foto!');
+	        //     redirect('Page/registrasi');
+			// }
+			
+			if ($tabel == 'Biologi'){
+				$this->m_registrasi->updateDataBiologi($nim, $password, $email);
+			}elseif($tabel == 'Bioteknologi'){
+				$this->m_registrasi->updateDataBioteknologi($nim, $password, $email);
+			}elseif($tabel == 'Kimia'){
+				$this->m_registrasi->updateDataKimia($nim, $password, $email);
+			}elseif($tabel == 'Fisika'){
+				$this->m_registrasi->updateDataFisika($nim, $password, $email);
+			}elseif($tabel == 'Matematika'){
+				$this->m_registrasi->updateDataMatematika($nim, $password, $email);
+			}elseif($tabel == 'Informatika'){
+				$this->m_registrasi->updateDataInformatika($nim, $password, $email);
+			}elseif($tabel == 'Statistika'){
+				$this->m_registrasi->updateDataStatistika($nim, $password, $email);
+			}
+			$this->session->set_flashdata('request_berhasil', 'berhasil');
+			redirect('Page/index');
+
+		}
+	}
+
+	public function get_data_pemilih()
+	{
+		$this->load->model('m_pemilih');
+		$nim = $this->input->post('nim');
+
+		$get_Biologi=$this->m_pemilih->getDataBiologi($nim);
+		$get_Kimia=$this->m_pemilih->getDataKimia($nim);
+		$get_Fisika=$this->m_pemilih->getDataFisika($nim);
+		$get_Matematika=$this->m_pemilih->getDataMatematika($nim);
+		$get_Informatika=$this->m_pemilih->getDataInformatika($nim);
+		$get_Statistika=$this->m_pemilih->getDataStatistika($nim);
+		$get_Bioteknologi=$this->m_pemilih->getDataBioteknologi($nim);
+
+		if ($get_Biologi->num_rows() != 0) {
+			$data=$get_Biologi->result();
+		}elseif ($get_Bioteknologi->num_rows() != 0) {
+			$data=$get_Bioteknologi->result();
+		}elseif ($get_Fisika->num_rows() != 0) {
+			$data=$get_Fisika->result();
+		}elseif ($get_Informatika->num_rows() != 0) {
+			$data=$get_Informatika->result();
+		}elseif ($get_Kimia->num_rows() != 0) {
+			$data=$get_Kimia->result();
+		}elseif ($get_Matematika->num_rows() != 0) {
+			$data=$get_Matematika->result();
+		}elseif ($get_Statistika->num_rows() != 0) {
+			$data=$get_Statistika->result();
+		}else{
+			$data=false;
+		}
+
+		echo json_encode($data);
+
 	}
 
 	public function login()

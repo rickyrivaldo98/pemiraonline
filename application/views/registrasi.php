@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/aos/aos.css' ?>">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/animate.css/animate.min.css' ?>">
 
-    <title>Pemira Online</title>
+    <title>Registrasi</title>
 </head>
 
 <body>
@@ -25,44 +25,78 @@
         <br>
         <h1 class="text-center">REGISTRASI CALON PEMILIH</h1>
 
-        <form>
-            <div class="form-group">
-                <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama">
+        <?php if ($this->session->flashdata('gagal_upload_foto')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Kandidat <strong> Gagal </strong> Ditambahkan, Karena Foto <strong><?= $this->session->flashdata('gagal_upload_foto'); ?> !</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+        <?php endif; ?>
+
+        <form method="POST">
             <div class="form-group">
-                <label for="nim">Nomor Induk Mahasiswa</label>
+                <label for="nim">Silahkan cek Nomor Induk Mahasiswa</label>
                 <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukkan NIM">
+                <button class="btn btn-success btn-sm" type="button" onclick="autofill_registrasi()"><i class="fas fa-search"></i>&nbsp;CEK</button>
+                <div class="alert alert-danger" role="alert" id="not_found" name="not_found" style="display: none;">
+
+                </div>
+                <?php if (form_error('nim')) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= form_error('nim'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="form-group" id="nama_group" style="display: none;">
+                <label for="nama">Nama</label>
+                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" readonly>
                 <small id="penjelasan" class="form-text text-muted">Pihak Panitia Tidak Akan Membocorkan Informasi Pengguna</small>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="text" class="form-control" id="password" name="password" placeholder="Masukkan Password">
-                <small id="penjelasan" class="form-text text-muted">Pihak Panitia Tidak Akan Membocorkan Informasi Pengguna</small>
-            </div>
-            <div class="form-group">
+            <div class="form-group" id="departemen_group" style="display: none;">
                 <label for="departemen">Departemen</label>
-                <input type="text" class="form-control" id="departemen" name="departemen" placeholder="Masukkan Departemen Calon Pemilih">
+                <input type="text" class="form-control" id="departemen" name="departemen" placeholder="Masukkan Departemen Calon Pemilih" readonly>
                 <small id="penjelasan" class="form-text text-muted">Pihak Panitia Tidak Akan Membocorkan Informasi Pengguna</small>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="fakultas_group" style="display: none;">
                 <label for="fakultas">Fakultas</label>
-                <input type="text" class="form-control" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas Calon Pemilih">
+                <input type="text" class="form-control" id="fakultas" name="fakultas" placeholder="Masukkan Fakultas Calon Pemilih" readonly>
                 <small id="penjelasan" class="form-text text-muted">Pihak Panitia Tidak Akan Membocorkan Informasi Pengguna</small>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="password">Masukan Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password">
+                <small id="penjelasan" class="form-text text-muted">Pihak Panitia Tidak Akan Membocorkan Informasi Pengguna</small>
+                <?php if (form_error('password')) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= form_error('password'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="form-group">
+                <label for="email">Masukan Email</label>
                 <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan email">
                 <small id="penjelasan" class="form-text text-muted">Pihak Panitia Tidak Akan Membocorkan Informasi Pengguna</small>
+                <?php if (form_error('email')) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= form_error('email'); ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="form-group">
                 <label for="gambar">Bukti Foto Selfie dengan KTM</label>
-                <input type="file" class="form-control-file" id="ktm" name="ktm">
+                <input id="foto" name="foto" type="file" class="form-control-file" >
+                <small class="form-text text-muted">File foto yang diupload harus sesuai dengan fomat JPG / JPEG / PNG</small>
+                <?php if ($this->session->flashdata('no_foto')) : ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= $this->session->flashdata('no_foto'); ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <br><br>
             <div class="text-center ayo-pilih">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" id="submit" class="btn btn-primary btn-lg" disabled>Submit</button>
             </div>
         </form>
         <br>
@@ -74,7 +108,6 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
