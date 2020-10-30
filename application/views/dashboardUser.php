@@ -20,7 +20,7 @@
 <body>
     <?php $this->load->view('template/navbar') ?>
 
-    <div class="container dashboard">
+    <div class="container-fluid dashboard">
         <br>
         <br>
         <br>
@@ -30,14 +30,14 @@
         <br>
         <br>
         <div class="row">
-            <div class="col-6 text-center">
+            <div class="col-12 col-md-6 text-center mb-5 mb-md-0">
                 <a href="<?php echo base_url() . 'page/voting' ?>">
                     <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
                     <h1>Voting</h1>
                 </a>
 
             </div>
-            <div class="col-6 text-center">
+            <div class="col-12 col-md-6 text-center">
                 <a href="<?php echo base_url() . 'page/hasilvote' ?>">
                     <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/6.png' ?>" alt="">
                     <h1>Lihat Hasil</h1>

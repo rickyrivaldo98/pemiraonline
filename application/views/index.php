@@ -34,7 +34,6 @@
           <h1 class="animate__animated animate__fadeInLeft animate__delay-1s"> UNIVERSITAS DIPONEGORO</h1>
           <p class="animate__animated animate__fadeInLeft animate__delay-2s"> <i>“Mari Menjadi Pemilih Yang Baik”</i> </p>
         </div>
-
       </div>
       <div class="regis text-center">
         <h3>Belum Registrasi?</h3>
@@ -52,10 +51,10 @@
       </div>
       <!-- konten -->
       <div class="row konten">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
           <img class="gambar_konten rounded float-right" src="<?php echo base_url() . 'assets/img/1.png' ?>" alt="">
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6">
           <h1>1. Lakukan Registrasi</h1>
           <p>Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Vivamus tristique luctus dolor,
@@ -66,7 +65,7 @@
         </div>
       </div>
       <div class="row konten">
-        <div class="col-6">
+        <div class="col-12 col-md-6 order-2 order-md-1">
           <h1>2. Lakukan Login</h1>
           <p>Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Vivamus tristique luctus dolor,
@@ -75,15 +74,15 @@
             purus, vel molestie neque ultrices eu. Morbi
             accumsan.</p>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6 order-1 order-md-2">
           <img class="gambar_konten rounded float-left" src="<?php echo base_url() . 'assets/img/2.png' ?>" alt="">
         </div>
       </div>
       <div class="row konten">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
           <img class="gambar_konten rounded float-right" src="<?php echo base_url() . 'assets/img/3.png' ?>" alt="">
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6">
           <h1>3. Lihat Calon Ketua BEM</h1>
           <p>Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Vivamus tristique luctus dolor,
@@ -94,7 +93,7 @@
         </div>
       </div>
       <div class="row konten">
-        <div class="col-6">
+        <div class="col-12 col-md-6 order-2 order-md-1">
           <h1>4. Lakukan Voting</h1>
           <p>Lorem ipsum dolor sit amet, consectetur
             adipiscing elit. Vivamus tristique luctus dolor,
@@ -103,16 +102,19 @@
             purus, vel molestie neque ultrices eu. Morbi
             accumsan.</p>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6 order-1 order-md-2">
           <img class="gambar_konten rounded float-left" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
         </div>
       </div>
 
-      <div class="text-center ayo-pilih">
-        <h1>AYO!</h1>
-        <h1>PILIH SEKARANG</h1>
-        <button type="button" class="btn btn-danger btn-lg">KLIK DISINI</button>
-
+      <div class="row">
+        <div class="col-12">
+          <div class="text-center ayo-pilih">
+            <h1>AYO!</h1>
+            <h1>PILIH SEKARANG</h1>
+            <button type="button" class="btn btn-danger btn-lg px-sm-2 px-md-5">KLIK DISINI</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>

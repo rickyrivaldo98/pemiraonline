@@ -24,21 +24,20 @@
         <br>
         <br>
         <button type="button" class="btn btn-danger btn-lg" onclick="history.go(-1);">Kembali</button>
-        <h1 class="text-center">VOTING</h1>
+        <h1 class="text-center mt-4 mt-md-0">VOTING</h1>
         <h1 class="text-center">CALON KETUA BEM FAKULTAS A</h1>
-        <br>
         <br>
         <br>
         <form action="">
             <div class="row">
-                <label class="col-6 text-center">
+                <label class="col-12 col-md-6 text-center mb-5 mb-md-0">
                     <input type="radio" name="1" id="1">
                     <div class="card ">
                         <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
                         <h1>CALON A</h1>
                     </div>
                 </label>
-                <label class="col-6 text-center">
+                <label class="col-12 col-md-6 text-center">
                     <input type="radio" name="1" id="2">
                     <div class="card ">
                         <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">

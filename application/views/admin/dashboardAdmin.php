@@ -20,47 +20,47 @@
 <body>
     <?php $this->load->view('template/navbar') ?>
 
-    <div class="container dashboard">
+    <div class="container-fluid dashboard">
         <br>
         <br>
         <br>
         <h1 class="text-center">SELAMAT DATANG Admin123</h1>
         <h1 class="text-center">DI DASHBOARD PEMIRA ONLINE 2020</h1>
 
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-12 col-md-3 text-center mb-5 mb-md-0">
+                <a href="<?php echo base_url() . 'page/verifikasi' ?>">
+                    <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/7.png' ?>" alt="">
+                    <h1>Verifikasi</h1>
+                </a>
+            </div>
+            <div class="col-12 col-md-3 text-center">
+                <a href="" data-toggle="modal" data-target="#pilih">
+                    <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
+                    <h1>Submit Calon</h1>
+                </a>
+                <a href="<?php echo base_url() . 'page/listcalonketuabem' ?>" class="btn btn-danger btn-lg mb-5 mb-md-0">List Calon Ketua Bem</a>
+            </div>
+            <div class="col-12 col-md-3 text-center mb-5 mb-md-0">
+                <a href="<?php echo base_url() . 'page/voting' ?>">
+                    <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/8.png' ?>" alt="">
+                    <h1>Lihat Log</h1>
+                </a>
+            </div>
+            <div class="col-12 col-md-3 text-center">
+                <a href="<?php echo base_url() . 'page/hasilvoteAdmin' ?>">
+                    <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/6.png' ?>" alt="">
+                    <h1>Lihat Hasil</h1>
+                </a>
+            </div>
+        </div>
+    <br>
+    <br>
+    <br>
     </div>
-    <br>
-    <br>
-    <br>
-    <div class="row">
-        <div class="col-3 text-center">
-            <a href="<?php echo base_url() . 'page/verifikasi' ?>">
-                <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/7.png' ?>" alt="">
-                <h1>Verifikasi</h1>
-            </a>
-        </div>
-        <div class="col-3 text-center">
-            <a href="" data-toggle="modal" data-target="#pilih">
-                <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
-                <h1>Submit Calon</h1>
-            </a>
-            <a href="<?php echo base_url() . 'page/listcalonketuabem' ?>" class="btn btn-danger btn-lg">List Calon Ketua Bem</a>
-        </div>
-        <div class="col-3 text-center">
-            <a href="<?php echo base_url() . 'page/voting' ?>">
-                <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/8.png' ?>" alt="">
-                <h1>Lihat Log</h1>
-            </a>
-        </div>
-        <div class="col-3 text-center">
-            <a href="<?php echo base_url() . 'page/hasilvoteAdmin' ?>">
-                <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/6.png' ?>" alt="">
-                <h1>Lihat Hasil</h1>
-            </a>
-        </div>
-    </div>
-    <br>
-    <br>
-    <br>
     <div class="modal fade" id="pilih" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document" style="margin-top: 20%; margin-bottom:auto;">
             <div class="modal-content">

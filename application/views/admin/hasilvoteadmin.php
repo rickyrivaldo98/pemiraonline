@@ -27,7 +27,7 @@
         <br>
         <br>
         <button type="button" class="btn btn-danger btn-lg" onclick="history.go(-1);">Kembali</button>
-        <h1 class="text-center">Hasil Voting Calon Ketua BEM</h1>
+        <h1 class="text-center mt-4 mt-md-0">Hasil Voting Calon Ketua BEM</h1>
         <br>
         <br>
 

@@ -23,13 +23,12 @@
         <br>
         <br>
         <button type="button" class="btn btn-danger btn-lg" onclick="history.go(-1);">Kembali</button>
-        <h1 class="text-center">HASIL VOTING</h1>
+        <h1 class="text-center mt-4 mt-md-0">HASIL VOTING</h1>
         <h1 class="text-center">CALON KETUA BEM UNDIP</h1>
         <br>
         <br>
-        <br>
         <div class="row">
-            <label class="col-4 text-center ">
+            <label class="col-12 col-md-4 text-center order-2 order-md-1">
                 <div class="card ">
                     <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
                     <h1>CALON A</h1>
@@ -37,11 +36,11 @@
                     <h3>50%</h3>
                 </div>
             </label>
-            <label class="col-4 text-center ">
+            <label class="col-12 col-md-4 text-center order-1 order-md-2">
                 <p>nanti ada diagram di kolom ini kalo udah ada data wkwkwk
                 </p>
             </label>
-            <label class="col-4 text-center">
+            <label class="col-12 col-md-4 text-center order-3 order-md-3">
                 <div class="card ">
                     <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
                     <h1>CALON B</h1>
@@ -51,13 +50,13 @@
             </label>
         </div>
         <br><br>
+        <hr>
         <h1 class="text-center">HASIL VOTING</h1>
         <h1 class="text-center">CALON KETUA BEM FAKULTAS A</h1>
         <br>
         <br>
-        <br>
         <div class="row">
-            <label class="col-4 text-center ">
+            <label class="col-12 col-md-4 text-center order-2 order-md-1 ">
                 <div class="card ">
                     <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
                     <h1>CALON A</h1>
@@ -65,11 +64,11 @@
                     <h3>50%</h3>
                 </div>
             </label>
-            <label class="col-4 text-center ">
+            <label class="col-12 col-md-4 text-center order-1 order-md-2">
                 <p>nanti ada diagram di kolom ini kalo udah ada data wkwkwk
                 </p>
             </label>
-            <label class="col-4 text-center">
+            <label class="col-12 col-md-4 text-center order-3 order-md-3">
                 <div class="card ">
                     <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
                     <h1>CALON B</h1>
