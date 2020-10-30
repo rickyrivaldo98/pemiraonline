@@ -131,7 +131,27 @@
          <a style="text-decoration: none;" href="<?php echo base_url() ?>"> SM UNDIP</a> Make With Love From <a style="text-decoration: none;" href="https://www.instagram.com/sarafdesign.id/"> Saraf Design</a>
      </div>
      <!-- Copyright -->
+    <!-- Modal Logout -->
 
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: black;">Anda Yakin Untuk Logout?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            </div>
+            <div class="modal-body" style="color: black;">Pilih "Logout" Dibawah Ini Untuk Mengakhiri Session Anda.</div>
+            <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a href="<?php echo base_url().'Page/logout'?>" class="btn btn-primary">Logout</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- End Modal Logout -->
  </footer>
  <!-- Footer -->
  <style>

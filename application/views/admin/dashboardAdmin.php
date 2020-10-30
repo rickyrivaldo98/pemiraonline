@@ -24,7 +24,7 @@
         <br>
         <br>
         <br>
-        <h1 class="text-center">SELAMAT DATANG Admin123</h1>
+        <h1 class="text-center">SELAMAT DATANG <span style="text-transform: uppercase;"><?= ($this->session->userdata('nama')) ?></span></h1>
         <h1 class="text-center">DI DASHBOARD PEMIRA ONLINE 2020</h1>
 
     </div>

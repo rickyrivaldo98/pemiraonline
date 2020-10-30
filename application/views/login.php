@@ -26,15 +26,34 @@
         <img class="gambar_login mx-auto d-block" src="<?php echo base_url() . 'assets/img/5.png' ?>" alt="">
         <h1 class="text-center">LOGIN</h1>
         <br>
-        <form action="">
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="NIM">
+        <?php if($this->session->flashdata('msg')): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong><?= $this->session->flashdata('msg'); ?> !</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
+        <form method="POST">
+            <input type="text" class="form-control" id="username" name="username" placeholder="NIM / ID">
+            <?php if (form_error('username')) : ?>
+                <div class="alert alert-danger form-control" role="alert" style="z-index: 1">
+                    <?= form_error('username'); ?>
+                </div>
+            <?php endif; ?>
             <br>
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Password">
-        </form>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <?php if (form_error('password')) : ?>
+                <div class="alert alert-danger form-control" role="alert" style="z-index: 1">
+                    <?= form_error('password'); ?>
+                </div>
+            <?php endif; ?>
+        
         <br><br>
         <div class="text-center ayo-pilih">
             <button type="submit" class="btn btn-primary btn-lg">LOGIN</button>
         </div>
+        </form>
     </div>
 
     <?php $this->load->view('template/footer') ?>
