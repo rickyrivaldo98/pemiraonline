@@ -107,6 +107,80 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Script auto fill ragistrasi -->
+
+    <script type="text/javascript">
+        function autofill_registrasi(){
+            var nim =document.getElementById('nim').value;
+            $.ajax({
+                url:"<?php echo base_url();?>index.php/Page/get_data_pemilih",
+                method : "POST",
+                data: {nim: nim},
+                dataType : 'json',
+                success:function(data){
+                //console.log(data);
+                if (data != false){ // nim ditemukan
+                        $.each(data, function(key,val){
+                            if (val.registrasi == 1){
+                                document.getElementById('nama').value='';
+                                document.getElementById('departemen').value='';
+                                document.getElementById('fakultas').value='';
+                                document.getElementById('nama_group').style.display='none';
+                                document.getElementById('departemen_group').style.display='none';
+                                document.getElementById('fakultas_group').style.display='none';
+                                document.getElementById('submit').disabled=true;
+                                Swal.fire({
+                                    icon: 'info',
+                                    title: 'Registrasi Sedang Diproses',
+                                    text: 'Registrasi NIM anda sedang diproses!'
+                                });
+                            }else if (val.registrasi == 2){
+                                document.getElementById('nama').value='';
+                                document.getElementById('departemen').value='';
+                                document.getElementById('fakultas').value='';
+                                document.getElementById('nama_group').style.display='none';
+                                document.getElementById('departemen_group').style.display='none';
+                                document.getElementById('fakultas_group').style.display='none';
+                                document.getElementById('submit').disabled=true;
+                                Swal.fire({
+                                    icon: 'info',
+                                    title: 'NIM sudah Diverifikasi !',
+                                });
+                            }else{
+                                document.getElementById('nama').value=val.nama;
+                                document.getElementById('departemen').value=val.departemen;
+                                document.getElementById('fakultas').value=val.fakultas;
+                                document.getElementById('nama_group').style.display='block';
+                                document.getElementById('departemen_group').style.display='block';
+                                document.getElementById('fakultas_group').style.display='block';
+                                document.getElementById('submit').disabled=false;
+                            }
+                            
+                        });
+                    }else{// data tidak ada isinya / nim tidak ditemukan
+                        //console.log('Tidak ditemukan');
+                        document.getElementById('nama').value='';
+                        document.getElementById('departemen').value='';
+                        document.getElementById('fakultas').value='';
+                        document.getElementById('nama_group').style.display='none';
+                        document.getElementById('departemen_group').style.display='none';
+                        document.getElementById('fakultas_group').style.display='none';
+                        document.getElementById('submit').disabled=true;
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Maaf NIM anda tidak terdaftar sebagai Mahasiswa Aktif 2020',
+                            footer: '<a href="#">Hubungi Operator</a>'
+                        });
+                    }
+                    
+                }
+            });              
+        }
+
+    </script>
+    <!-- END Script auto fill ragistrasi -->
 </body>
 
 </html>

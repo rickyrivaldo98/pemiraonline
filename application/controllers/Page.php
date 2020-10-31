@@ -206,90 +206,152 @@ class Page extends CI_Controller
 				redirect('Page/dashboardAdmin');
 			}elseif ($cek_biologi->num_rows() != 0) {
 				$data=$cek_biologi->row_array();
-				$nim=$data['nim'];
-				$nama =$data['nama'];
-				$role='pemilih';
-				$jurusan = 'biologi';
-				$this->session->set_userdata('login', true);
-				$this->session->set_userdata('akses', $role);
-				$this->session->set_userdata('nama', $nama);
-				$this->session->set_userdata('jurusan', $jurusan);
+				if($data['registrasi'] == 2){
+					$nim=$data['nim'];
+					$nama =$data['nama'];
+					$role='pemilih';
+					$jurusan = 'biologi';
+					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('akses', $role);
+					$this->session->set_userdata('nama', $nama);
+					$this->session->set_userdata('jurusan', $jurusan);
+					redirect('Page/dashboardUser');
+				}elseif ($data['registrasi'] == 1){
+					$this->session->set_flashdata('diproses','data sedang diproses');
+					redirect('Page/login');
+				}else{
+					$this->session->set_flashdata('not_found','gagal login');
+					redirect('Page/login');
+				}
 				
-				redirect('Page/dashboardUser');
 			}elseif ($cek_bioteknologi->num_rows() != 0) {
 				$data=$cek_bioteknologi->row_array();
-				$nim=$data['nim'];
-				$nama =$data['nama'];
-				$role='pemilih';
-				$jurusan = 'bioteknologi';
-				$this->session->set_userdata('login', true);
-				$this->session->set_userdata('akses', $role);
-				$this->session->set_userdata('nama', $nama);
-				$this->session->set_userdata('jurusan', $jurusan);
+				if($data['registrasi'] == 2){
+					$nim=$data['nim'];
+					$nama =$data['nama'];
+					$role='pemilih';
+					$jurusan = 'bioteknologi';
+					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('akses', $role);
+					$this->session->set_userdata('nama', $nama);
+					$this->session->set_userdata('jurusan', $jurusan);
+					
+					redirect('Page/dashboardUser');
+				}elseif ($data['registrasi'] == 1){
+					$this->session->set_flashdata('diproses','data sedang diproses');
+					redirect('Page/login');
+				}else{
+					$this->session->set_flashdata('not_found','gagal login');
+					redirect('Page/login');
+				}
 				
-				redirect('Page/dashboardUser');
 			}elseif ($cek_fisika->num_rows() != 0) {
 				$data=$cek_fisika->row_array();
-				$nim=$data['nim'];
-				$nama =$data['nama'];
-				$role='pemilih';
-				$jurusan = 'fisika';
-				$this->session->set_userdata('login', true);
-				$this->session->set_userdata('akses', $role);
-				$this->session->set_userdata('nama', $nama);
-				$this->session->set_userdata('jurusan', $jurusan);
+				if($data['registrasi'] == 2){
+					$nim=$data['nim'];
+					$nama =$data['nama'];
+					$role='pemilih';
+					$jurusan = 'fisika';
+					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('akses', $role);
+					$this->session->set_userdata('nama', $nama);
+					$this->session->set_userdata('jurusan', $jurusan);
+					
+					redirect('Page/dashboardUser');
+				}elseif ($data['registrasi'] == 1){
+					$this->session->set_flashdata('diproses','data sedang diproses');
+					redirect('Page/login');
+				}else{
+					$this->session->set_flashdata('not_found','gagal login');
+					redirect('Page/login');
+				}
 				
-				redirect('Page/dashboardUser');
 			}elseif ($cek_informatika->num_rows() != 0) {
 				$data=$cek_informatika->row_array();
-				$nim=$data['nim'];
-				$nama =$data['nama'];
-				$role='pemilih';
-				$jurusan = 'informatika';
-				$this->session->set_userdata('login', true);
-				$this->session->set_userdata('akses', $role);
-				$this->session->set_userdata('nama', $nama);
-				$this->session->set_userdata('jurusan', $jurusan);
+				if($data['registrasi'] == 2){
+					$nim=$data['nim'];
+					$nama =$data['nama'];
+					$role='pemilih';
+					$jurusan = 'informatika';
+					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('akses', $role);
+					$this->session->set_userdata('nama', $nama);
+					$this->session->set_userdata('jurusan', $jurusan);
+					
+					redirect('Page/dashboardUser');
+				}elseif ($data['registrasi'] == 1){
+					$this->session->set_flashdata('diproses','data sedang diproses');
+					redirect('Page/login');
+				}else{
+					$this->session->set_flashdata('not_found','gagal login');
+					redirect('Page/login');
+				}
 				
-				redirect('Page/dashboardUser');
 			}elseif ($cek_kimia->num_rows() != 0) {
 				$data=$cek_kimia->row_array();
-				$nim=$data['nim'];
-				$nama =$data['nama'];
-				$role='pemilih';
-				$jurusan = 'kimia';
-				$this->session->set_userdata('login', true);
-				$this->session->set_userdata('akses', $role);
-				$this->session->set_userdata('nama', $nama);
-				$this->session->set_userdata('jurusan', $jurusan);
+				if($data['registrasi'] == 2){
+					$nim=$data['nim'];
+					$nama =$data['nama'];
+					$role='pemilih';
+					$jurusan = 'kimia';
+					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('akses', $role);
+					$this->session->set_userdata('nama', $nama);
+					$this->session->set_userdata('jurusan', $jurusan);
+					
+					redirect('Page/dashboardUser');
+				}elseif ($data['registrasi'] == 1){
+					$this->session->set_flashdata('diproses','data sedang diproses');
+					redirect('Page/login');
+				}else{
+					$this->session->set_flashdata('not_found','gagal login');
+					redirect('Page/login');
+				}
 				
-				redirect('Page/dashboardUser');
 			}elseif ($cek_matematika->num_rows() != 0) {
 				$data=$cek_matematika->row_array();
-				$nim=$data['nim'];
-				$nama =$data['nama'];
-				$role='pemilih';
-				$jurusan = 'matematika';
-				$this->session->set_userdata('login', true);
-				$this->session->set_userdata('akses', $role);
-				$this->session->set_userdata('nama', $nama);
-				$this->session->set_userdata('jurusan', $jurusan);
+				if($data['registrasi'] == 2){
+					$nim=$data['nim'];
+					$nama =$data['nama'];
+					$role='pemilih';
+					$jurusan = 'matematika';
+					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('akses', $role);
+					$this->session->set_userdata('nama', $nama);
+					$this->session->set_userdata('jurusan', $jurusan);
+					
+					redirect('Page/dashboardUser');
+				}elseif ($data['registrasi'] == 1){
+					$this->session->set_flashdata('diproses','data sedang diproses');
+					redirect('Page/login');
+				}else{
+					$this->session->set_flashdata('not_found','gagal login');
+					redirect('Page/login');
+				}
 				
-				redirect('Page/dashboardUser');
 			}elseif ($cek_statistika->num_rows() != 0) {
 				$data=$cek_statistika->row_array();
-				$nim=$data['nim'];
-				$nama =$data['nama'];
-				$role='pemilih';
-				$jurusan = 'statistika';
-				$this->session->set_userdata('login', true);
-				$this->session->set_userdata('akses', $role);
-				$this->session->set_userdata('nama', $nama);
-				$this->session->set_userdata('jurusan', $jurusan);
+				if($data['registrasi'] == 2){
+					$nim=$data['nim'];
+					$nama =$data['nama'];
+					$role='pemilih';
+					$jurusan = 'statistika';
+					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('akses', $role);
+					$this->session->set_userdata('nama', $nama);
+					$this->session->set_userdata('jurusan', $jurusan);
+					
+					redirect('Page/dashboardUser');
+				}elseif ($data['registrasi'] == 1){
+					$this->session->set_flashdata('diproses','data sedang diproses');
+					redirect('Page/login');
+				}else{
+					$this->session->set_flashdata('not_found','gagal login');
+					redirect('Page/login');
+				}
 				
-				redirect('Page/dashboardUser');
 			}else{  // jika username dan password tidak ditemukan atau salah
-				$this->session->set_flashdata('msg','Username Atau Password Salah');
+				$this->session->set_flashdata('not_found','gagal login');
 				redirect('Page/login');
 			}
 			
@@ -329,7 +391,171 @@ class Page extends CI_Controller
 
 	public function verifikasi()
 	{
-		$this->load->view('admin/verifikasi');
+		$this->load->model('m_verifikasi');
+		$biologi = $this->m_verifikasi->getBiologi();
+		$bioteknologi = $this->m_verifikasi->getBioteknologi();
+		$kimia = $this->m_verifikasi->getKimia();
+		$fisika = $this->m_verifikasi->getFisika();
+		$informatika = $this->m_verifikasi->getInformatika();
+		$statistika = $this->m_verifikasi->getStatistika();
+		$matematika = $this->m_verifikasi->getMatematika();
+		$data['pemilih'] = array_merge($biologi, $bioteknologi, $kimia, $fisika, $informatika, $statistika, $matematika);
+
+		$this->load->view('admin/verifikasi', $data);
+	}
+
+	public function verifikasi_email(){
+		$this->load->model('m_verifikasi');
+		$nim = $this->input->get('nim');
+		$nama = $this->input->get('nama');
+		$fakultas = $this->input->get('fakultas');
+		$tabel = $this->input->get('departemen');
+
+
+		//untuk kirim email
+		$from = 'andyanjordan1153@gmail.com';
+		$to = $this->input->get('email', true);
+		$subject = 'Verifikasi berkas Calon Pemilih Pemira FSM 2020';
+		$link_pemira = base_url() . "Page/login";
+
+        $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:none;margin: auto;border-spacing:0;"><tr><td style="background:#b93b48;padding:2%; text-align:center; vertical-align : middle; color: black; font-weight: bold; font-size: 15px;">PEMIRA ONLINE  </td></tr><tr><td style="background:#b93b48;padding:2%; text-align:center; vertical-align : middle; color: black; font-weight: bold; font-size: 15px;">UNIVERRSITAS DIPONEGORO</td></tr>';
+        $emailContent .= '<tr><td style="height:20px"></td></tr>';
+
+
+        $emailContent .= '<div style: "margin-left: 20px; margin-right:20px;">' . '<p> Selamat akun : <br>
+		Atas Nama : ' . $nama . '  <br>  
+		NIM : ' . $nim . '  <br> 
+		Departemen : ' . $tabel . '  <br> 
+        Fakultas : ' . $fakultas . '   <br>
+		<h3 style="text-align:center;" > <strong> SUDAH DIVERIFIKASI ! </strong> </h3></p> <br>'; 
+		
+        $emailContent .= '<p> Pemira online Fakultas Sains dan Matematika dapat diakses melalui link berikut:  </p>';
+        $emailContent .=  "<p style='text-align: center;'><a href='" . $link_pemira . "'> <button type='button' style='color:#fff;background-color:#16aaff;border-color:#16aaff; font-weight: bold;'>PEMIRA UNDIP</button></a></p> </div>";
+
+        $emailContent .= '<tr><td style="height:20px"></td></tr>';
+        $emailContent .= "<tr><td style='background:#b93b48;color: black;padding: 2%;text-align: center;font-size: 10px;'>PEMIRA ONLINE UNDIP <br> <small> <i>mari menjadi pemilih yang baik</i> </small></td></table></body></html>";
+
+        $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'ssl://smtp.gmail.com';
+        $config['smtp_port'] = '465';
+        $config['smtp_timeout'] = '60';
+
+        $config['smtp_user'] = 'andyanjordan1153@gmail.com';
+        $config['smtp_pass'] = 'yiamqkvsifszjtsz';
+
+        $config['charset'] = 'utf-8';
+        $config['newline'] = "\r\n";
+        $config['mailtype'] = 'html';
+		$config['validation'] = true;
+
+		$this->email->initialize($config);
+        $this->email->set_mailtype("html");
+        $this->email->from($from);
+        $this->email->to($to);
+        $this->email->subject($subject);
+        $this->email->message($emailContent);
+		$this->email->send();
+		
+		$debug = $this->email->print_debugger();
+		$this->session->set_flashdata('debug', $debug);
+
+		//update data 
+		if ($tabel == 'Biologi'){
+			$this->m_verifikasi->verifikasiDataBiologi($nim);
+		}elseif($tabel == 'Bioteknologi'){
+			$this->m_verifikasi->verifikasiDataBioteknologi($nim);
+		}elseif($tabel == 'Kimia'){
+			$this->m_verifikasi->verifikasiDataKimia($nim);
+		}elseif($tabel == 'Fisika'){
+			$this->m_verifikasi->verifikasiDataFisika($nim);
+		}elseif($tabel == 'Matematika'){
+			$this->m_verifikasi->verifikasiDataMatematika($nim);
+		}elseif($tabel == 'Informatika'){
+			$this->m_verifikasi->verifikasiDataInformatika($nim);
+		}elseif($tabel == 'Statistika'){
+			$this->m_verifikasi->verifikasiDataStatistika($nim);
+		}
+
+
+		$this->session->set_flashdata('verifiksi_berhasil','berhasil');
+		redirect('Page/verifikasi');
+
+	}
+
+	public function tolak_email(){
+		$this->load->model('m_verifikasi');
+		$nim = $this->input->get('nim');
+		$nama = $this->input->get('nama');
+		$fakultas = $this->input->get('fakultas');
+		$tabel = $this->input->get('departemen');
+
+
+		//untuk kirim email
+		$from = 'andyanjordan1153@gmail.com';
+		$to = $this->input->get('email', true);
+		$subject = 'Verifikasi berkas Calon Pemilih Pemira FSM 2020';
+		$link_pemira = base_url() . "Page/registrasi";
+
+        $emailContent = '<!DOCTYPE><html><head></head><body><table width="600px" style="border:none;margin: auto;border-spacing:0;"><tr><td style="background:#b93b48;padding:2%; text-align:center; vertical-align : middle; color: black; font-weight: bold; font-size: 15px;">PEMIRA ONLINE  </td></tr><tr><td style="background:#b93b48;padding:2%; text-align:center; vertical-align : middle; color: black; font-weight: bold; font-size: 15px;">UNIVERRSITAS DIPONEGORO</td></tr>';
+        $emailContent .= '<tr><td style="height:20px"></td></tr>';
+
+
+        $emailContent .= '<div style: "margin-left: 20px; margin-right:20px;">' . '<p> Verifikasi akun : <br>
+		Atas Nama : ' . $nama . '  <br>  
+		NIM : ' . $nim . '  <br> 
+		Departemen : ' . $tabel . '  <br> 
+        Fakultas : ' . $fakultas . '   <br>
+		<h3 style="text-align:center;" > <strong> Ditolak ! </strong> </h3></p> <br>'; 
+		
+        $emailContent .= '<p> Anda dapat melakukan registrasi ulang melalui link berikut:  </p>';
+        $emailContent .=  "<p style='text-align: center;'><a href='" . $link_pemira . "'> <button type='button' style='color:#fff;background-color:#16aaff;border-color:#16aaff; font-weight: bold;'>REGISTRASI PEMIRA UNDIP</button></a></p> </div>";
+
+        $emailContent .= '<tr><td style="height:20px"></td></tr>';
+        $emailContent .= "<tr><td style='background:#b93b48;color: black;padding: 2%;text-align: center;font-size: 10px;'>PEMIRA ONLINE UNDIP <br> <small> <i>mari menjadi pemilih yang baik</i> </small></td></table></body></html>";
+
+        $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'ssl://smtp.gmail.com';
+        $config['smtp_port'] = '465';
+        $config['smtp_timeout'] = '60';
+
+        $config['smtp_user'] = 'andyanjordan1153@gmail.com';
+        $config['smtp_pass'] = 'yiamqkvsifszjtsz';
+
+        $config['charset'] = 'utf-8';
+        $config['newline'] = "\r\n";
+        $config['mailtype'] = 'html';
+		$config['validation'] = true;
+
+		$this->email->initialize($config);
+        $this->email->set_mailtype("html");
+        $this->email->from($from);
+        $this->email->to($to);
+        $this->email->subject($subject);
+        $this->email->message($emailContent);
+		$this->email->send();
+		
+
+		//update data 
+		if ($tabel == 'Biologi'){
+			$this->m_verifikasi->tolakDataBiologi($nim);
+		}elseif($tabel == 'Bioteknologi'){
+			$this->m_verifikasi->tolakDataBioteknologi($nim);
+		}elseif($tabel == 'Kimia'){
+			$this->m_verifikasi->tolakDataKimia($nim);
+		}elseif($tabel == 'Fisika'){
+			$this->m_verifikasi->tolakDataFisika($nim);
+		}elseif($tabel == 'Matematika'){
+			$this->m_verifikasi->tolakDataMatematika($nim);
+		}elseif($tabel == 'Informatika'){
+			$this->m_verifikasi->tolakDataInformatika($nim);
+		}elseif($tabel == 'Statistika'){
+			$this->m_verifikasi->tolakDataStatistika($nim);
+		}
+
+
+		$this->session->set_flashdata('verifiksi_ditolak','berhasil');
+		redirect('Page/verifikasi');
+
 	}
 
 	public function listcalonketuabem()
