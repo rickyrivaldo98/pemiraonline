@@ -441,7 +441,7 @@ class Page extends CI_Controller
         $config['smtp_timeout'] = '60';
 
         $config['smtp_user'] = 'andyanjordan1153@gmail.com';
-        $config['smtp_pass'] = 'yiamqkvsifszjtsz';
+        $config['smtp_pass'] = '#';
 
         $config['charset'] = 'utf-8';
         $config['newline'] = "\r\n";
@@ -519,7 +519,7 @@ class Page extends CI_Controller
         $config['smtp_timeout'] = '60';
 
         $config['smtp_user'] = 'andyanjordan1153@gmail.com';
-        $config['smtp_pass'] = 'yiamqkvsifszjtsz';
+        $config['smtp_pass'] = '#';
 
         $config['charset'] = 'utf-8';
         $config['newline'] = "\r\n";
