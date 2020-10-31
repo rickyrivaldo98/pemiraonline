@@ -71,43 +71,44 @@ class Page extends CI_Controller
 			$password = $this->input->post('password', true);
 			$email = $this->input->post('email', true);
 
-			// $lokasi = './ktm';
-			// $foto = $_FILES['foto'];
-        	// $nama_foto = $nim;
-        	// if (!empty($_FILES['foto']['name'])) {
-	        //     $config['upload_path'] = $lokasi;
-	        //     $config['allowed_types'] = 'jpeg|jpg|png';
-	        //     $config['file_name'] = $nama_foto;
-	        //     $config['overwrite']     = true;
-	        //     $config['max_size']      = 1024;
+			$lokasi = './ktm/';
+			$foto = $_FILES['foto'];
+        	$nama_foto = $nim;
+        	if ($_FILES['foto']['name']) {
+	            $config['upload_path'] = $lokasi;
+	            $config['allowed_types'] = 'jpeg|jpg|png';
+	            $config['file_name'] = $nama_foto;
+	            $config['overwrite']     = true;
+	            $config['max_size']      = 2048;
 
-	        //     $this->load->library('upload', $config);
-	        //     if (!$this->upload->do_upload('foto')) {
-	        //         $this->session->set_flashdata('gagal_upload_foto', 'Tidak Sesuai Format');
-	        //         redirect('Page/registrasi');
-	        //     } else {
-	        //         //unlink($lokasi."/$row->foto");
-	        //         $foto = $this->upload->data("file_name");
-	        //     }
-	        // }else{
-	        // 	$this->session->set_flashdata('no_foto', 'Harap Masukan Foto!');
-	        //     redirect('Page/registrasi');
-			// }
+	            $this->load->library('upload', $config);
+	            if (!$this->upload->do_upload('foto')) {
+	                $this->session->set_flashdata('gagal_upload_foto', 'Tidak Sesuai Format');
+	                redirect('Page/registrasi');
+	            } else {
+	                //unlink($lokasi."/$row->foto");
+	                $foto = $this->upload->data("file_name");
+	            }
+	        }else{
+	        	$this->session->set_flashdata('no_foto', 'Harap Masukan Foto!');
+	            redirect('Page/registrasi');
+			}
+
 			
 			if ($tabel == 'Biologi'){
-				$this->m_registrasi->updateDataBiologi($nim, $password, $email);
+				$this->m_registrasi->updateDataBiologi($nim, $password, $email, $foto);
 			}elseif($tabel == 'Bioteknologi'){
-				$this->m_registrasi->updateDataBioteknologi($nim, $password, $email);
+				$this->m_registrasi->updateDataBioteknologi($nim, $password, $email, $foto);
 			}elseif($tabel == 'Kimia'){
-				$this->m_registrasi->updateDataKimia($nim, $password, $email);
+				$this->m_registrasi->updateDataKimia($nim, $password, $email, $foto);
 			}elseif($tabel == 'Fisika'){
-				$this->m_registrasi->updateDataFisika($nim, $password, $email);
+				$this->m_registrasi->updateDataFisika($nim, $password, $email, $foto);
 			}elseif($tabel == 'Matematika'){
-				$this->m_registrasi->updateDataMatematika($nim, $password, $email);
+				$this->m_registrasi->updateDataMatematika($nim, $password, $email, $foto);
 			}elseif($tabel == 'Informatika'){
-				$this->m_registrasi->updateDataInformatika($nim, $password, $email);
+				$this->m_registrasi->updateDataInformatika($nim, $password, $email, $foto);
 			}elseif($tabel == 'Statistika'){
-				$this->m_registrasi->updateDataStatistika($nim, $password, $email);
+				$this->m_registrasi->updateDataStatistika($nim, $password, $email, $foto);
 			}
 			$this->session->set_flashdata('request_berhasil', 'berhasil');
 			redirect('Page/index');

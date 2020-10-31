@@ -27,21 +27,18 @@
 
         <?php if ($this->session->flashdata('gagal_upload_foto')) : ?>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                Kandidat <strong> Gagal </strong> Ditambahkan, Karena Foto <strong><?= $this->session->flashdata('gagal_upload_foto'); ?> !</strong>
+                Registrasi <strong> Gagal </strong> Karena Foto <strong><?= $this->session->flashdata('gagal_upload_foto'); ?> !</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
         <?php endif; ?>
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nim">Silahkan cek Nomor Induk Mahasiswa</label>
                 <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukkan NIM">
                 <button class="btn btn-success btn-sm" type="button" onclick="autofill_registrasi()"><i class="fas fa-search"></i>&nbsp;CEK</button>
-                <div class="alert alert-danger" role="alert" id="not_found" name="not_found" style="display: none;">
-
-                </div>
                 <?php if (form_error('nim')) : ?>
                     <div class="alert alert-danger" role="alert">
                         <?= form_error('nim'); ?>
@@ -85,7 +82,7 @@
             </div>
             <div class="form-group">
                 <label for="gambar">Bukti Foto Selfie dengan KTM</label>
-                <input id="foto" name="foto" type="file" class="form-control-file" >
+                <input id="foto" name="foto" type="file" class="form-control-file" />
                 <small class="form-text text-muted">File foto yang diupload harus sesuai dengan fomat JPG / JPEG / PNG</small>
                 <?php if ($this->session->flashdata('no_foto')) : ?>
                     <div class="alert alert-danger" role="alert">
