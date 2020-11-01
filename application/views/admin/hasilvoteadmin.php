@@ -47,13 +47,21 @@
             </style>
             <div>
                 <tbody class="belang">
-                    <?php $i = 1 ?>
+                    <?php 
+                        if ($calon):
+                            $i = 1 ;
+                            foreach($calon as $row) :
+                    ?>
                     <tr>
                         <td><?php echo $i; ?></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $row['nama_ketua']; ?></td>
+                        <td><?php echo $row['suara']; ?></td>
                     </tr>
-                    <?php $i++ ?>
+                    <?php 
+                        $i++ ;
+                        endforeach;
+                        endif;
+                    ?>
                 </tbody>
             </div>
             <tfoot style="background-color: white;">
@@ -81,13 +89,12 @@
             </style>
             <div>
                 <tbody class="belang">
-                    <?php $i = 1 ?>
+                    <?php $i = 0 ?>
                     <tr>
-                        <td><?php echo $i; ?></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $i+1; ?></td>
+                        <td><?php echo $calon[$i]['nama_ketua']; ?></td>
+                        <td><?php echo $calon[$i]['suara']; ?></td>
                     </tr>
-                    <?php $i++ ?>
                 </tbody>
             </div>
             <tfoot style="background-color: white;">
@@ -117,11 +124,10 @@
                 <tbody class="belang">
                     <?php $i = 1 ?>
                     <tr>
-                        <td><?php echo $i; ?></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $i+1; ?></td>
+                        <td><?php echo $calon[$i]['nama_ketua']; ?></td>
+                        <td><?php echo $calon[$i]['suara']; ?></td>
                     </tr>
-                    <?php $i++ ?>
                 </tbody>
             </div>
             <tfoot style="background-color: white;">
