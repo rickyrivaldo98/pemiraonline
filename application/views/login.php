@@ -26,15 +26,27 @@
         <img class="gambar_login mx-auto d-block" src="<?php echo base_url() . 'assets/img/5.png' ?>" alt="">
         <h1 class="text-center">LOGIN</h1>
         <br>
-        <form action="">
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="NIM">
+        
+        <form method="POST">
+            <input type="text" class="form-control" id="username" name="username" placeholder="NIM / ID">
+            <?php if (form_error('username')) : ?>
+                <div class="alert alert-danger form-control" role="alert" style="z-index: 1">
+                    <?= form_error('username'); ?>
+                </div>
+            <?php endif; ?>
             <br>
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Password">
-        </form>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <?php if (form_error('password')) : ?>
+                <div class="alert alert-danger form-control" role="alert" style="z-index: 1">
+                    <?= form_error('password'); ?>
+                </div>
+            <?php endif; ?>
+        
         <br><br>
         <div class="text-center ayo-pilih">
             <button type="submit" class="btn btn-primary btn-lg">LOGIN</button>
         </div>
+        </form>
     </div>
 
     <?php $this->load->view('template/footer') ?>
@@ -44,6 +56,29 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <?php if($this->session->flashdata('not_found')): ?>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Akun Tidak Ditemukan...',
+            text: 'Pastikan anda sudah registrasi dan mengisi data dengan benar !',
+            footer: 'Belum Registrasi ? <a href="<?php echo base_url() . 'Page/registrasi' ?>"> Registrasi Sekarang</a>'
+        });
+    </script>
+    
+    <?php endif; ?>
+
+    <?php if($this->session->flashdata('diproses')): ?>
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'Registrasi Akun Sedang Diproses',
+            text: 'Silahkan menunggu sampai pemrosesan selesai, Terimakasih!'
+         });
+    </script>
+    
+    <?php endif; ?>
 </body>
 
 </html>
