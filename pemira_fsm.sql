@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 31, 2020 at 07:03 PM
+-- Generation Time: Nov 01, 2020 at 03:00 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26\
-
+-- PHP Version: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,7 +45,7 @@ CREATE TABLE `biologi` (
 --
 
 INSERT INTO `biologi` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `status`, `password`, `registrasi`, `foto_ktm`) VALUES
-('24020113120041', 'HARMIGITA PUTRI FITRIANI', 'andyanjordan1153@gmail.com', 'Biologi', 'Sains dan Matematika', 0, '123123', 2, '24020113120041.jpg'),
+('24020113120041', 'HARMIGITA PUTRI FITRIANI', 'andyanjordan1153@gmail.com', 'Biologi', 'Sains dan Matematika', 1, '123123', 2, '24020113120041.jpg'),
 ('24020113120049', 'WIDYA ZEKI RAVELIA', 'andyanjordan1153@gmail.com', 'Biologi', 'Sains dan Matematika', 0, '1111', 0, '24020113120049.jpg'),
 ('24020113120063', 'SHAFIRA PURWADHANI', 'dagammav@gmail.com', 'Biologi', 'Sains dan Matematika', 0, '12313', 1, '24020113120063.jpg'),
 ('24020113130069', 'SHANTI TRISTA M R', '', 'Biologi', 'Sains dan Matematika', 0, '', 0, ''),
@@ -906,6 +905,30 @@ INSERT INTO `bioteknologi` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `s
 ('24020219140082', 'FIQIH MAULANA ARDIANSYAH', '', 'Bioteknologi', 'Sains dan Matematika', 0, '', 0, ''),
 ('24020219140083', 'ASSYIFA FAJRI SHEILA PRATAMA', '', 'Bioteknologi', 'Sains dan Matematika', 0, '', 0, ''),
 ('24020219140084', 'NADIA PUSPA DEWI', '', 'Bioteknologi', 'Sains dan Matematika', 0, '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `departemen`
+--
+
+CREATE TABLE `departemen` (
+  `departemen_id` varchar(20) NOT NULL,
+  `departemen_nama` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `departemen`
+--
+
+INSERT INTO `departemen` (`departemen_id`, `departemen_nama`) VALUES
+('fsm1', 'Biologi'),
+('fsm2', 'Bioteknologi'),
+('fsm3', 'Kimia'),
+('fsm4', 'Fisika'),
+('fsm5', 'Matematika'),
+('fsm6', 'Statistika'),
+('fsm7', 'Informatika');
 
 -- --------------------------------------------------------
 
@@ -2476,28 +2499,28 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jurusan`
+-- Table structure for table `kandidat_bemf`
 --
 
-CREATE TABLE `jurusan` (
-  `jurusan_id` varchar(20) NOT NULL,
-  `jurusan_nama` varchar(20) NOT NULL
+CREATE TABLE `kandidat_bemf` (
+  `id_kandidat` varchar(30) NOT NULL,
+  `nim_ketua` varchar(15) NOT NULL,
+  `nama_ketua` varchar(60) NOT NULL,
+  `departemen_ketua` varchar(20) NOT NULL,
+  `nim_wakil` varchar(15) NOT NULL,
+  `nama_wakil` varchar(60) NOT NULL,
+  `departemen_wakil` varchar(20) NOT NULL,
+  `suara` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `kandidat`
+-- Dumping data for table `kandidat_bemf`
 --
 
-CREATE TABLE `kandidat` (
-  `id_kandidat` varchar(20) NOT NULL,
-  `nim` varchar(15) NOT NULL,
-  `nama` varchar(60) NOT NULL,
-  `jurusan` varchar(20) NOT NULL,
-  `kandidat` varchar(20) NOT NULL,
-  `suara` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`) VALUES
+('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 2, 'paslon_24060117130078_24060117130068.jpg'),
+('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg');
 
 -- --------------------------------------------------------
 
@@ -3208,9 +3231,17 @@ CREATE TABLE `log_suara` (
   `no` int(11) NOT NULL,
   `waktu` datetime NOT NULL,
   `nim` varchar(15) NOT NULL,
-  `jurusan` varchar(15) NOT NULL,
-  `kandidat` varchar(10) NOT NULL
+  `departemen` varchar(15) NOT NULL,
+  `kandidat` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `log_suara`
+--
+
+INSERT INTO `log_suara` (`no`, `waktu`, `nim`, `departemen`, `kandidat`) VALUES
+(1, '2020-11-01 20:50:18', '24020113120041', 'Biologi', '6011713007'),
+(2, '2020-11-01 20:50:58', '24020113120041', 'Biologi', '6011713007860117130068');
 
 -- --------------------------------------------------------
 
@@ -4560,6 +4591,12 @@ ALTER TABLE `bioteknologi`
   ADD PRIMARY KEY (`nim`);
 
 --
+-- Indexes for table `departemen`
+--
+ALTER TABLE `departemen`
+  ADD PRIMARY KEY (`departemen_id`);
+
+--
 -- Indexes for table `fisika`
 --
 ALTER TABLE `fisika`
@@ -4572,15 +4609,9 @@ ALTER TABLE `informatika`
   ADD PRIMARY KEY (`nim`);
 
 --
--- Indexes for table `jurusan`
+-- Indexes for table `kandidat_bemf`
 --
-ALTER TABLE `jurusan`
-  ADD PRIMARY KEY (`jurusan_id`);
-
---
--- Indexes for table `kandidat`
---
-ALTER TABLE `kandidat`
+ALTER TABLE `kandidat_bemf`
   ADD PRIMARY KEY (`id_kandidat`);
 
 --
@@ -4621,7 +4652,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `log_suara`
 --
 ALTER TABLE `log_suara`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

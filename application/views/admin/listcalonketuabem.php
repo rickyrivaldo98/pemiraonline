@@ -35,18 +35,18 @@
         <table style="width: 100%;" id="table-1" class="table table-bordered table-striped">
             <thead style="background-color: white;">
                 <tr>
-                    <th rowspan ='2' >No</th>
-                    <th colspan = '3'>Ketua</th>
-                    <th colspan ='3'>Wakil</th>
-                    <th rowspan ='2'>Aksi</th>
+                    <th rowspan ='2' style="text-align: center; vertical-align: middle;">No</th>
+                    <th colspan = '3' style="text-align: center; vertical-align: middle;">Ketua</th>
+                    <th colspan ='3' style="text-align: center; vertical-align: middle;">Wakil</th>
+                    <th rowspan ='2' style="text-align: center; vertical-align: middle;">Aksi</th>
                 </tr>
                 <tr>
-                    <th>Nama</th>
-                    <th>NIM</th>
-                    <th>Departemen</th>
-                    <th>Nama</th>
-                    <th>NIM</th>
-                    <th>Departemen</th>
+                    <th style="text-align: center; vertical-align: middle;">Nama</th>
+                    <th style="text-align: center; vertical-align: middle;">NIM</th>
+                    <th style="text-align: center; vertical-align: middle;">Departemen</th>
+                    <th style="text-align: center; vertical-align: middle;">Nama</th>
+                    <th style="text-align: center; vertical-align: middle;">NIM</th>
+                    <th style="text-align: center; vertical-align: middle;">Departemen</th>
                 </tr>
             </thead>
             <style>
@@ -66,10 +66,25 @@
                         <td><?php echo $row['nama_ketua']; ?></td>
                         <td><?php echo $row['nim_ketua']; ?></td>
                         <td><?php echo $row['departemen_ketua']; ?></td>
-                        <td><?php echo $row['nama_ketua']; ?></td>
-                        <td><?php echo $row['nim_ketua']; ?></td>
-                        <td><?php echo $row['departemen_ketua']; ?></td>
-                        <td> aksi </td>
+                        <td><?php echo $row['nama_wakil']; ?></td>
+                        <td><?php echo $row['nim_wakil']; ?></td>
+                        <td><?php echo $row['departemen_wakil']; ?></td>
+                        <td>  
+                            <a href="" class="btn btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#modalCekFoto_<?= $row['id_kandidat']; ?>">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-info-circle"></i>
+                                </span>
+                                <span class="text">Lihat Foto</span>
+                            </a> &nbsp;
+                            
+                            <a href="#" class="btn btn-danger btn-danger-split btn-sm" onclick="alert_hapus('<?=$row['id_kandidat'];?>', '<?=$row['foto'];?>' )">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-trash"></i>
+                                </span>
+                                <span class="text">Hapus</span>
+                            </a>
+
+                        </td>
                     </tr>
                     <?php 
                         $i++ ;
@@ -80,18 +95,18 @@
             </div>
             <tfoot style="background-color: white;">
                 <tr>
-                    <th rowspan ='2'>No</th>
-                    <th>Nama</th>
-                    <th>NIM</th>
-                    <th>Departemen</th>
-                    <th>Nama</th>
-                    <th>NIM</th>
-                    <th>Departemen</th>
-                    <th rowspan ='2'>Aksi</th>
+                    <th rowspan ='2' style="text-align: center; vertical-align: middle;">No</th>
+                    <th style="text-align: center; vertical-align: middle;">Nama</th>
+                    <th style="text-align: center; vertical-align: middle;">NIM</th>
+                    <th style="text-align: center; vertical-align: middle;">Departemen</th>
+                    <th style="text-align: center; vertical-align: middle;">Nama</th>
+                    <th style="text-align: center; vertical-align: middle;">NIM</th>
+                    <th style="text-align: center; vertical-align: middle;">Departemen</th>
+                    <th rowspan ='2' style="text-align: center; vertical-align: middle;">Aksi</th>
                 </tr>
                 <tr>
-                    <th colspan = '3'>Ketua</th>
-                    <th colspan ='3'>Wakil</th>
+                    <th colspan = '3' style="text-align: center; vertical-align: middle;">Ketua</th>
+                    <th colspan ='3' style="text-align: center; vertical-align: middle;">Wakil</th>
                 </tr>
             </tfoot>
         </table>
@@ -106,7 +121,6 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -162,6 +176,117 @@
             });
         });
     </script>
+
+    <!-- Script alert edit foto  -->
+    <?php if ($this->session->flashdata('gagal_upload_foto')) : ?>
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Tambah Calon Gagal..',
+                text: 'Foto tidak sesuai format atau ukuran melebihi 2 mb !',
+            });
+        </script>
+    <?php endif; ?>
+
+
+    <?php if ($this->session->flashdata('no_foto')) : ?>
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Tambah Calon Gagal...',
+                text: 'Silahkan masukan foto calon terlebih dahulu!',
+            });
+        </script>
+    <?php endif; ?>
+
+    
+
+    <?php if ($this->session->flashdata('edit_berhasil')) : ?>
+        <script>
+            Swal.fire(
+                'Selamat',
+                'Edit foto calon berhasil! ',
+                'success'
+            )
+        </script>
+    <?php endif; ?>
+    <!-- END Script alert edit foto -->
+
+
+    <!-- Script untuk hapus -->
+    <script>
+        function alert_hapus(id_kandidat, foto){
+            //console.log(id_kandidat);
+            Swal.fire({
+                title: 'Anda Yakin Ingin Menghapus Data Calon?',
+                text: "Data tidak dapat dikembalikan lagi!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Hapus!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url:"<?php echo base_url();?>index.php/Page/hapus_data_calon",
+                        method : "POST",
+                        data: {id_kandidat: id_kandidat, foto: foto},
+                        dataType : 'json',
+                        success:function(data){
+                            window.location.reload();
+                        }
+                    });  
+                }
+            })
+        }
+    </script>
+
+    <!-- END Script untuk hapus -->
+    <?php if ($this->session->flashdata('hapus_berhasil')) : ?>
+        <script>
+            Swal.fire(
+                'Berhasil',
+                'Data berhasil dihapus! ',
+                'success'
+            )
+        </script>
+    <?php endif; ?>
+    <!-- Script alert haps berhasil -->
+
+    <!-- END Script alert haps berhasil -->
+
+    <!--Modal lihat Foto Calon-->
+    <?php if ($calon) : ?>
+        <?php foreach ($calon as $row) : ?>
+            <div class="modal fade bd-example-modal-lg" id="modalCekFoto_<?= $row['id_kandidat']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Foto Calon BEM FSM</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="text-align: center">
+                            <img src = "<?= base_url(); ?>calon/<?=$row['foto']; ?>" style="width: 100%; height: auto;">
+                            <hr>
+                            <form method ="POST" enctype="multipart/form-data" action= "<?= base_url(); ?>Page/editFotoCalonBemf/<?= $row['id_kandidat']; ?>">
+                            <div class="form-group" style="text-align: left">
+                                <label for="gambar">Ganti Foto</label>
+                                <input id="foto" name="foto" type="file" class="form-control-file" />
+                                <small class="form-text text-muted">File foto yang diupload harus sesuai dengan fomat JPG / JPEG / PNG max 2mb</small>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </body>
 
 </html>

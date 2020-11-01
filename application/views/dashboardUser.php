@@ -31,7 +31,11 @@
         <br>
         <div class="row">
             <div class="col-12 col-md-6 text-center mb-5 mb-md-0">
+                <?php if ($this->session->userdata('hak_pilih') == 0) : ?>
                 <a href="<?php echo base_url() . 'page/voting' ?>">
+                <?php else : ?>
+                <a href="#" onclick="sudahMemilih()">
+                <?php endif; ?>
                     <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
                     <h1>Voting</h1>
                 </a>
@@ -57,6 +61,26 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <?php if ($this->session->flashdata('pilih_berhasil')) : ?>
+        <script>
+            Swal.fire(
+                'Terimakasih',
+                'Anda telah memilih calon BEM FSM 2020 !',
+                'success'
+            )
+        </script>
+    <?php endif; ?>
+    
+    <script>
+        function sudahMemilih(){
+            Swal.fire({
+                icon: 'error',
+                title: 'Anda Sudah Memilih',
+                text: 'Pemilihan hanya dapat dilakukan sekali!'
+            });
+        } 
+    </script>
 </body>
 
 </html>

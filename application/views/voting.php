@@ -28,30 +28,36 @@
         <h1 class="text-center">CALON KETUA BEM FAKULTAS A</h1>
         <br>
         <br>
-        <form action="">
+        <!-- <form action="<?= base_url(); ?>Page/pilih_calon"> -->
             <div class="row">
+                 <?php 
+                    if ($calon):
+                        $i = 1 ;
+                        foreach($calon as $row) :
+                ?>
                 <label class="col-12 col-md-6 text-center mb-5 mb-md-0">
-                    <input type="radio" name="1" id="1">
+                    <input type="radio" name="calon" id="calon<?=$i; ?>" value="<?= $row['id_kandidat']?>" onclick="pilihan(this.value)">
                     <div class="card ">
-                        <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
-                        <h1>CALON A</h1>
+                        <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'calon/'.$row['foto'] ?>">
+                        <h1>CALON <?= $i; ?></h1>
+                        <h4>Ketua : <?= $row['nama_ketua']; ?></h1>
+                        <h4>Wakil Ketua :  <?= $row['nama_wakil']; ?></h1>
                     </div>
                 </label>
-                <label class="col-12 col-md-6 text-center">
-                    <input type="radio" name="1" id="2">
-                    <div class="card ">
-                        <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'assets/img/no-image.jpg' ?>" alt="">
-                        <h1>CALON B</h1>
-                    </div>
-                </label>
+                <?php 
+                    $i++ ;
+                    endforeach;
+                    endif;
+                ?>
+                <input type="hidden" id ="result">
             </div>
             <br>
             <br>
             <div class="text-center ayo-pilih">
-                <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#konfirmasi">SUBMIT</button>
+                <button type="button" class="btn btn-danger btn-lg" onclick="pilih()" >SUBMIT</button>
             </div>
-
-            <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- data-toggle="modal" data-target="#konfirmasi" -->
+            <!-- <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header ">
@@ -70,8 +76,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </div> -->
+        <!-- </form> -->
 
         <br>
         <br>
@@ -82,9 +88,50 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Script untuk pemilihan -->
+    <script>
+        function pilihan(id_kandidat){
+            document.getElementById("result").value=id_kandidat;
+        }
+        function pilih(){
+            var id_kandidat = document.getElementById("result").value;
+            if (id_kandidat==""){   
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Anda Belum Memilih Calon',
+                    text: 'Silahkan memilih calon terlebih dahulu!'
+                });
+            }else{
+                Swal.fire({
+                    title: 'Anda Yakin Dengan Pilihan Anda?',
+                    text: "Perhatikan bahwa pemilih hanya dapat memilih sebanyak 1 kali!",
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Pilih!'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url:"<?php echo base_url();?>index.php/Page/pilih_calon",
+                            method : "POST",
+                            data: {id_kandidat: id_kandidat},
+                            dataType : 'json',
+                            success:function(data){
+                                location.replace("<?php echo base_url();?>index.php/Page/dashboardUser");
+                            }
+                        });  
+                    }
+                })
+            }
+                
+        }
+    </script>
+
+    <!-- END Script untuk pemilihan -->
 </body>
 
 </html>

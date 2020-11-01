@@ -17,6 +17,26 @@ class M_calonketuabemf extends CI_Model
 	{
 		return $this->db->query("SELECT * FROM kandidat_bemf")->result_array();
 	}
+
+	function getDataCalon1($id_kandidat)
+	{
+		return $this->db->query("SELECT * FROM kandidat_bemf WHERE id_kandidat = '$id_kandidat'")->row_array();
+	}
+
+	function updateFotoCalon($id_kandidat, $foto)
+	{
+		$this->db->query("UPDATE kandidat_bemf SET foto = '$foto' WHERE id_kandidat = '$id_kandidat'");
+	}
+
+	function hapusDataCalon($id_kandidat)
+	{
+		$this->db->query("DELETE FROM kandidat_bemf WHERE id_kandidat = '$id_kandidat'");
+	}
+
+	function updateSuara($id_kandidat)
+	{
+		$this->db->query("UPDATE kandidat_bemf SET suara = suara + 1 WHERE id_kandidat = '$id_kandidat'");
+	}
     
 
 }

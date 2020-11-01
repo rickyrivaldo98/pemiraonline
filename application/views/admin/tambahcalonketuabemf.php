@@ -136,7 +136,19 @@
         function autofill_ketua(){
             var nim =document.getElementById('nim').value;
             var nim2 = document.getElementById('nim2').value;
-            if (nim == nim2){
+            if (nim == '' && nim2 == ''){
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Perhatian',
+                    text: 'Harap Masukan NIM !'
+                });
+            }else if (nim == ''){
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Perhatian',
+                    text: 'Harap Masukan NIM !'
+                });
+            }else if (nim == nim2){
                 Swal.fire({
                     icon: 'info',
                     title: 'Perhatian',
@@ -186,7 +198,19 @@
         function autofill_wakil(){
             var nim =document.getElementById('nim').value;
             var nim2 = document.getElementById('nim2').value;
-            if (nim == nim2){
+            if (nim == '' && nim2 == ''){
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Perhatian',
+                    text: 'Harap Masukan NIM !'
+                });
+            }else if (nim2 == ''){
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Perhatian',
+                    text: 'Harap Masukan NIM !'
+                });
+            }else if (nim == nim2){
                 Swal.fire({
                     icon: 'info',
                     title: 'Perhatian',

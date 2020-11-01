@@ -43,4 +43,39 @@ class M_pemilih extends CI_Model
 		return $query;
 	}
 
+	function updateStatusBiologi($nim)
+	{
+		$this->db->query("UPDATE biologi SET status = 1 WHERE nim = '$nim'");
+    }
+    
+    function updateStatusKimia($nim)
+	{
+		$this->db->query("UPDATE kimia SET status = 1 WHERE nim = '$nim'");
+    }
+    
+    function updateStatusFisika($nim)
+	{
+		$this->db->query("UPDATE fisika SET status = 1 WHERE nim = '$nim'");
+    }
+    
+    function updateStatusInformatika($nim)
+	{
+		$this->db->query("UPDATE informatika SET status = 1 WHERE nim = '$nim'");
+    }
+    
+    function updateStatusMatematika($nim)
+	{
+		$this->db->query("UPDATE matematika SET status = 1 WHERE nim = '$nim'");
+    }
+    
+    function updateStatusStatistika($nim)
+	{
+		$this->db->query("UPDATE statistika SET status = 1 WHERE nim = '$nim'");
+    }
+    
+    function updateStatusBioteknologi($nim)
+	{
+		$this->db->query("UPDATE bioteknologi SET status = 1 WHERE nim = '$nim'");
+	}
+
 }
