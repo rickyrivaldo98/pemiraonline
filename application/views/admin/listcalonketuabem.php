@@ -27,20 +27,26 @@
         <br>
         <br>
         <button type="button" class="btn btn-danger btn-lg" onclick="history.go(-1);">Kembali</button>
-        <h1 class="text-center">List Calon Ketua BEM</h1>
+        <h1 class="text-center">List Calon Ketua dan Wakil Ketua BEM </h1>
         <br>
         <br>
 
-        <h1>List Calon Ketua BEM UNDIP</h1>
+        <h1>List Calon Ketua BEM Fakultas Sains dan Matematika</h1>
         <table style="width: 100%;" id="table-1" class="table table-bordered table-striped">
             <thead style="background-color: white;">
                 <tr>
-                    <th>No</th>
+                    <th rowspan ='2' >No</th>
+                    <th colspan = '3'>Ketua</th>
+                    <th colspan ='3'>Wakil</th>
+                    <th rowspan ='2'>Aksi</th>
+                </tr>
+                <tr>
                     <th>Nama</th>
                     <th>NIM</th>
-                    <th>Fakultas</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
+                    <th>Departemen</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Departemen</th>
                 </tr>
             </thead>
             <style>
@@ -50,112 +56,42 @@
             </style>
             <div>
                 <tbody class="belang">
-                    <?php $i = 1 ?>
+                    <?php 
+                        if ($calon):
+                            $i = 1 ;
+                            foreach($calon as $row) :
+                    ?>
                     <tr>
                         <td><?php echo $i; ?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $row['nama_ketua']; ?></td>
+                        <td><?php echo $row['nim_ketua']; ?></td>
+                        <td><?php echo $row['departemen_ketua']; ?></td>
+                        <td><?php echo $row['nama_ketua']; ?></td>
+                        <td><?php echo $row['nim_ketua']; ?></td>
+                        <td><?php echo $row['departemen_ketua']; ?></td>
+                        <td> aksi </td>
                     </tr>
-                    <?php $i++ ?>
+                    <?php 
+                        $i++ ;
+                        endforeach;
+                        endif;
+                    ?>
                 </tbody>
             </div>
             <tfoot style="background-color: white;">
                 <tr>
-                    <th>No</th>
+                    <th rowspan ='2'>No</th>
                     <th>Nama</th>
                     <th>NIM</th>
-                    <th>Fakultas</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
+                    <th>Departemen</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Departemen</th>
+                    <th rowspan ='2'>Aksi</th>
                 </tr>
-            </tfoot>
-        </table>
-        <br>
-        <h1>List Calon Ketua BEM Fakultas A</h1>
-        <table style="width: 100%;" id="table-2" class="table table-bordered table-striped">
-            <thead style="background-color: white;">
                 <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>NIM</th>
-                    <th>Fakultas</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <style>
-                tbody.belang tr:nth-child(even) {
-                    background-color: white;
-                }
-            </style>
-            <div>
-                <tbody class="belang">
-                    <?php $i = 1 ?>
-                    <tr>
-                        <td><?php echo $i; ?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <?php $i++ ?>
-                </tbody>
-            </div>
-            <tfoot style="background-color: white;">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>NIM</th>
-                    <th>Fakultas</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
-                </tr>
-            </tfoot>
-        </table>
-        <br>
-        <h1>List Calon Ketua BEM Fakultas B</h1>
-        <table style="width: 100%;" id="table-3" class="table table-bordered table-striped">
-            <thead style="background-color: white;">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>NIM</th>
-                    <th>Fakultas</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <style>
-                tbody.belang tr:nth-child(even) {
-                    background-color: white;
-                }
-            </style>
-            <div>
-                <tbody class="belang">
-                    <?php $i = 1 ?>
-                    <tr>
-                        <td><?php echo $i; ?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <?php $i++ ?>
-                </tbody>
-            </div>
-            <tfoot style="background-color: white;">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>NIM</th>
-                    <th>Fakultas</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
+                    <th colspan = '3'>Ketua</th>
+                    <th colspan ='3'>Wakil</th>
                 </tr>
             </tfoot>
         </table>

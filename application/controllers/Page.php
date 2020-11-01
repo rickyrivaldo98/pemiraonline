@@ -116,7 +116,7 @@ class Page extends CI_Controller
 		}
 	}
 
-	public function get_data_pemilih()
+	public function get_data_nim()
 	{
 		$this->load->model('m_pemilih');
 		$nim = $this->input->post('nim');
@@ -390,7 +390,10 @@ class Page extends CI_Controller
 	}
 
 	public function verifikasi()
-	{
+	{	
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
 		$this->load->model('m_verifikasi');
 		$biologi = $this->m_verifikasi->getBiologi();
 		$bioteknologi = $this->m_verifikasi->getBioteknologi();
@@ -560,9 +563,16 @@ class Page extends CI_Controller
 
 	public function listcalonketuabem()
 	{
-		$this->load->view('admin/listcalonketuabem');
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_calonketuabemf');
+		$data['calon'] = $this->m_calonketuabemf->getDataCalon();
+		$this->load->view('admin/listcalonketuabem', $data);
 	}
 
+
+	//ini belum kepakai
 	public function tambahcalonketuabemundip()
 	{
 		$this->load->view('admin/tambahcalonketuabemundip');
@@ -570,7 +580,80 @@ class Page extends CI_Controller
 
 	public function tambahcalonketuabemf()
 	{
-		$this->load->view('admin/tambahcalonketuabemf');
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_calonketuabemf');
+		$config = array(
+			array(
+				'field' => 'nim',
+				'label' => 'Nim',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'NIM Calon Ketua Tidak Boleh Kosong',              
+				),
+			),
+			array(
+				'field' => 'nim2',
+				'label' => 'Nim2',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'NIM Calon Wakil Ketua Tidak Boleh Kosong',
+				),
+			),
+   
+		);
+		$this->form_validation->set_rules($config);
+		if( $this->form_validation->run() == FALSE){
+			$this->load->view('admin/tambahcalonketuabemf');
+		}else{
+
+			$nim = $this->input->post('nim', true);
+			$nama = $this->input->post('nama', true);
+			$departemen = $this->input->post('departemen', true);
+			$nim2 = $this->input->post('nim2', true);
+			$nama2 = $this->input->post('nama2', true);
+			$departemen2 = $this->input->post('departemen2', true);
+
+			$id = substr($nim, 3);
+			$id = $id.substr($nim2,3);
+
+			$lokasi = './calon/';
+			$foto = $_FILES['foto'];
+        	$nama_foto = 'paslon_'.$nim.'_'.$nim2;
+        	if ($_FILES['foto']['name']) {
+	            $config['upload_path'] = $lokasi;
+	            $config['allowed_types'] = 'jpeg|jpg|png';
+	            $config['file_name'] = $nama_foto;
+	            $config['overwrite']     = true;
+	            $config['max_size']      = 2048;
+
+	            $this->load->library('upload', $config);
+	            if (!$this->upload->do_upload('foto')) {
+	                $this->session->set_flashdata('gagal_upload_foto', 'Tidak Sesuai Format');
+	                redirect('Page/dashboardAdmin');
+	            } else {
+	                //unlink($lokasi."/$row->foto");
+	                $foto = $this->upload->data("file_name");
+	            }
+	        }else{
+	        	$this->session->set_flashdata('no_foto', 'Harap Masukan Foto!');
+	            redirect('Page/dashboardAdmin');
+			}
+
+			$cek = $this->m_calonketuabemf->getCalonBemF($nim, $nim2);
+			if($cek->num_rows()!= 0){
+				$this->session->set_flashdata('submit_gagal', 'terdeteksi');
+				redirect('Page/tambahcalonketuabemf');
+			}else{
+				$this->m_calonketuabemf->addCalonBemF($id, $nim, $nim2, $nama, $nama2, $departemen, $departemen2, $foto);
+			}
+			
+			$this->session->set_flashdata('submit_berhasil', 'berhasil');
+			redirect('Page/dashboardAdmin');
+
+		}
+		
 	}
 
 	public function editcalonketuabemundip()
