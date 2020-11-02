@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/aos/aos.css' ?>">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/animate.css/animate.min.css' ?>">
 
-    <title>Pemira Online</title>
+    <title>Verifikasi</title>
 </head>
 
 <body>

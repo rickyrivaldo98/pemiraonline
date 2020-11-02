@@ -116,7 +116,7 @@ class Page extends CI_Controller
 		}
 	}
 
-	public function get_data_pemilih()
+	public function get_data_nim()
 	{
 		$this->load->model('m_pemilih');
 		$nim = $this->input->post('nim');
@@ -208,13 +208,17 @@ class Page extends CI_Controller
 				$data=$cek_biologi->row_array();
 				if($data['registrasi'] == 2){
 					$nim=$data['nim'];
+					$departemen=$data['departemen'];
 					$nama =$data['nama'];
 					$role='pemilih';
+					$hak_pilih=$data['status'];
 					$jurusan = 'biologi';
 					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('hak_pilih', $hak_pilih);
 					$this->session->set_userdata('akses', $role);
 					$this->session->set_userdata('nama', $nama);
-					$this->session->set_userdata('jurusan', $jurusan);
+					$this->session->set_userdata('departemen', $departemen);
+					$this->session->set_userdata('nim', $nim);
 					redirect('Page/dashboardUser');
 				}elseif ($data['registrasi'] == 1){
 					$this->session->set_flashdata('diproses','data sedang diproses');
@@ -228,13 +232,17 @@ class Page extends CI_Controller
 				$data=$cek_bioteknologi->row_array();
 				if($data['registrasi'] == 2){
 					$nim=$data['nim'];
+					$departemen=$data['departemen'];
 					$nama =$data['nama'];
 					$role='pemilih';
+					$hak_pilih=$data['status'];
 					$jurusan = 'bioteknologi';
 					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('hak_pilih', $hak_pilih);
 					$this->session->set_userdata('akses', $role);
 					$this->session->set_userdata('nama', $nama);
-					$this->session->set_userdata('jurusan', $jurusan);
+					$this->session->set_userdata('departemen', $departemen);
+					$this->session->set_userdata('nim', $nim);
 					
 					redirect('Page/dashboardUser');
 				}elseif ($data['registrasi'] == 1){
@@ -249,13 +257,17 @@ class Page extends CI_Controller
 				$data=$cek_fisika->row_array();
 				if($data['registrasi'] == 2){
 					$nim=$data['nim'];
+					$departemen=$data['departemen'];
 					$nama =$data['nama'];
 					$role='pemilih';
+					$hak_pilih=$data['status'];
 					$jurusan = 'fisika';
 					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('hak_pilih', $hak_pilih);
 					$this->session->set_userdata('akses', $role);
 					$this->session->set_userdata('nama', $nama);
-					$this->session->set_userdata('jurusan', $jurusan);
+					$this->session->set_userdata('departemen', $departemen);
+					$this->session->set_userdata('nim', $nim);
 					
 					redirect('Page/dashboardUser');
 				}elseif ($data['registrasi'] == 1){
@@ -270,13 +282,17 @@ class Page extends CI_Controller
 				$data=$cek_informatika->row_array();
 				if($data['registrasi'] == 2){
 					$nim=$data['nim'];
+					$departemen=$data['departemen'];
 					$nama =$data['nama'];
 					$role='pemilih';
+					$hak_pilih=$data['status'];
 					$jurusan = 'informatika';
 					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('hak_pilih', $hak_pilih);
 					$this->session->set_userdata('akses', $role);
 					$this->session->set_userdata('nama', $nama);
-					$this->session->set_userdata('jurusan', $jurusan);
+					$this->session->set_userdata('departemen', $departemen);
+					$this->session->set_userdata('nim', $nim);
 					
 					redirect('Page/dashboardUser');
 				}elseif ($data['registrasi'] == 1){
@@ -291,13 +307,17 @@ class Page extends CI_Controller
 				$data=$cek_kimia->row_array();
 				if($data['registrasi'] == 2){
 					$nim=$data['nim'];
+					$departemen=$data['departemen'];
 					$nama =$data['nama'];
 					$role='pemilih';
+					$hak_pilih=$data['status'];
 					$jurusan = 'kimia';
 					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('hak_pilih', $hak_pilih);
 					$this->session->set_userdata('akses', $role);
 					$this->session->set_userdata('nama', $nama);
-					$this->session->set_userdata('jurusan', $jurusan);
+					$this->session->set_userdata('departemen', $departemen);
+					$this->session->set_userdata('nim', $nim);
 					
 					redirect('Page/dashboardUser');
 				}elseif ($data['registrasi'] == 1){
@@ -312,13 +332,17 @@ class Page extends CI_Controller
 				$data=$cek_matematika->row_array();
 				if($data['registrasi'] == 2){
 					$nim=$data['nim'];
+					$departemen=$data['departemen'];
 					$nama =$data['nama'];
 					$role='pemilih';
+					$hak_pilih=$data['status'];
 					$jurusan = 'matematika';
 					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('hak_pilih', $hak_pilih);
 					$this->session->set_userdata('akses', $role);
 					$this->session->set_userdata('nama', $nama);
-					$this->session->set_userdata('jurusan', $jurusan);
+					$this->session->set_userdata('departemen', $departemen);
+					$this->session->set_userdata('nim', $nim);
 					
 					redirect('Page/dashboardUser');
 				}elseif ($data['registrasi'] == 1){
@@ -333,13 +357,17 @@ class Page extends CI_Controller
 				$data=$cek_statistika->row_array();
 				if($data['registrasi'] == 2){
 					$nim=$data['nim'];
+					$departemen=$data['departemen'];
 					$nama =$data['nama'];
 					$role='pemilih';
+					$hak_pilih=$data['status'];
 					$jurusan = 'statistika';
 					$this->session->set_userdata('login', true);
+					$this->session->set_userdata('hak_pilih', $hak_pilih);
 					$this->session->set_userdata('akses', $role);
 					$this->session->set_userdata('nama', $nama);
-					$this->session->set_userdata('jurusan', $jurusan);
+					$this->session->set_userdata('departemen', $departemen);
+					$this->session->set_userdata('nim', $nim);
 					
 					redirect('Page/dashboardUser');
 				}elseif ($data['registrasi'] == 1){
@@ -381,7 +409,60 @@ class Page extends CI_Controller
 
 	public function voting()
 	{
-		$this->load->view('voting');
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == '1' || $this->session->userdata('akses') == '2' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_calonketuabemf');
+		$data['calon'] = $this->m_calonketuabemf->getDataCalon();
+		$this->load->view('voting', $data);
+	}
+
+	public function pilih_calon()
+	{	
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == '1' || $this->session->userdata('akses') == '2' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_calonketuabemf');
+		$this->load->model('m_logsuara');
+		$this->load->model('m_pemilih');
+
+		$id_kandidat = $this->input->post('id_kandidat');
+		$nim = $this->session->userdata('nim');
+		$departemen = $this->session->userdata('departemen');
+		if ( function_exists( 'date_default_timezone_set' ) ){
+    		date_default_timezone_set('Asia/Jakarta');
+			$time = date("Y-m-d H:i:s");
+		}
+
+		//update suara calon
+		$this->m_calonketuabemf->updateSuara($id_kandidat);
+
+
+		//update status pemilih
+		if ($departemen == 'Biologi'){
+			$this->m_pemilih->updateStatusBiologi($nim);
+		}elseif($departemen == 'Bioteknologi'){
+			$this->m_pemilih->updateStatusBioteknologi($nim);
+		}elseif($departemen == 'Kimia'){
+			$this->m_pemilih->updateStatusKimia($nim);
+		}elseif($departemen == 'Fisika'){
+			$this->m_pemilih->updateStatusFisika($nim);
+		}elseif($departemen == 'Matematika'){
+			$this->m_pemilih->updateStatusMatematika($nim);
+		}elseif($departemen == 'Informatika'){
+			$this->m_pemilih->updateStatusInformatika($nim);
+		}elseif($departemen == 'Statistika'){
+			$this->m_pemilih->updateStatusStatistika($nim);
+		}
+
+		//insert log suara
+		$this->m_logsuara->insertLog($nim, $departemen, $time, $id_kandidat);
+
+		$data = true;
+		$this->session->set_userdata('hak_pilih', 1);
+		$this->session->set_flashdata('pilih_berhasil','berhasil');
+		echo json_encode($data);
+
 	}
 
 	public function hasilvote()
@@ -390,7 +471,10 @@ class Page extends CI_Controller
 	}
 
 	public function verifikasi()
-	{
+	{	
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
 		$this->load->model('m_verifikasi');
 		$biologi = $this->m_verifikasi->getBiologi();
 		$bioteknologi = $this->m_verifikasi->getBioteknologi();
@@ -553,16 +637,81 @@ class Page extends CI_Controller
 		}
 
 
-		$this->session->set_flashdata('verifiksi_ditolak','berhasil');
+		$this->session->set_flashdata('verifiksi_ditolak','ditolak');
 		redirect('Page/verifikasi');
 
 	}
 
 	public function listcalonketuabem()
 	{
-		$this->load->view('admin/listcalonketuabem');
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_calonketuabemf');
+		$data['calon'] = $this->m_calonketuabemf->getDataCalon();
+		$this->load->view('admin/listcalonketuabem', $data);
 	}
 
+	public function editFotoCalonBemf($id_kandidat)
+	{
+
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		
+		$this->load->model('m_calonketuabemf');
+		$data['calon'] = $this->m_calonketuabemf->getDataCalon1($id_kandidat); 
+
+		$nama_foto = $data['calon']['foto'];
+		$nama_foto = explode(".",$nama_foto);
+		$nama_foto = $nama_foto[0];
+
+		$lokasi = './calon/';
+		$foto = $_FILES['foto'];
+        if ($_FILES['foto']['name']) {
+	        $config['upload_path'] = $lokasi;
+	        $config['allowed_types'] = 'jpeg|jpg|png';
+	        $config['file_name'] = $nama_foto;
+	        $config['overwrite']     = true;
+	        $config['max_size']      = 2048;
+
+	        $this->load->library('upload', $config);
+	        if (!$this->upload->do_upload('foto')) {
+	            $this->session->set_flashdata('gagal_upload_foto', 'Tidak Sesuai Format');
+	            redirect('Page/listcalonketuabem');
+	        } else {
+	            //unlink($lokasi."/$row->foto");
+	            $foto = $this->upload->data("file_name");
+	        }
+	    }else{
+	        $this->session->set_flashdata('no_foto', 'Harap Masukan Foto!');
+	        redirect('Page/listcalonketuabem');
+		}
+
+		$this->m_calonketuabemf->updateFotoCalon($id_kandidat, $foto);
+		$this->session->set_flashdata('edit_berhasil','berhasil');
+		redirect('Page/listcalonketuabem');
+
+	}
+
+	public function hapus_data_calon(){
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+
+		$this->load->model('m_calonketuabemf');
+		$id_kandidat = $this->input->post('id_kandidat');
+		$nama_foto = $this->input->post('foto');
+		$this->m_calonketuabemf->hapusDataCalon($id_kandidat);
+		$lokasi = './calon';
+		unlink($lokasi."/$nama_foto");
+		$data = true;
+		$this->session->set_flashdata('hapus_berhasil','berhasil');
+		echo json_encode($data);
+	}
+
+
+	//ini belum kepakai
 	public function tambahcalonketuabemundip()
 	{
 		$this->load->view('admin/tambahcalonketuabemundip');
@@ -570,7 +719,80 @@ class Page extends CI_Controller
 
 	public function tambahcalonketuabemf()
 	{
-		$this->load->view('admin/tambahcalonketuabemf');
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_calonketuabemf');
+		$config = array(
+			array(
+				'field' => 'nim',
+				'label' => 'Nim',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'NIM Calon Ketua Tidak Boleh Kosong',              
+				),
+			),
+			array(
+				'field' => 'nim2',
+				'label' => 'Nim2',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'NIM Calon Wakil Ketua Tidak Boleh Kosong',
+				),
+			),
+   
+		);
+		$this->form_validation->set_rules($config);
+		if( $this->form_validation->run() == FALSE){
+			$this->load->view('admin/tambahcalonketuabemf');
+		}else{
+
+			$nim = $this->input->post('nim', true);
+			$nama = $this->input->post('nama', true);
+			$departemen = $this->input->post('departemen', true);
+			$nim2 = $this->input->post('nim2', true);
+			$nama2 = $this->input->post('nama2', true);
+			$departemen2 = $this->input->post('departemen2', true);
+
+			$id = substr($nim, 3);
+			$id = $id.substr($nim2,3);
+
+			$lokasi = './calon/';
+			$foto = $_FILES['foto'];
+        	$nama_foto = 'paslon_'.$nim.'_'.$nim2;
+        	if ($_FILES['foto']['name']) {
+	            $config['upload_path'] = $lokasi;
+	            $config['allowed_types'] = 'jpeg|jpg|png';
+	            $config['file_name'] = $nama_foto;
+	            $config['overwrite']     = true;
+	            $config['max_size']      = 2048;
+
+	            $this->load->library('upload', $config);
+	            if (!$this->upload->do_upload('foto')) {
+	                $this->session->set_flashdata('gagal_upload_foto', 'Tidak Sesuai Format');
+	                redirect('Page/dashboardAdmin');
+	            } else {
+	                //unlink($lokasi."/$row->foto");
+	                $foto = $this->upload->data("file_name");
+	            }
+	        }else{
+	        	$this->session->set_flashdata('no_foto', 'Harap Masukan Foto!');
+	            redirect('Page/dashboardAdmin');
+			}
+
+			$cek = $this->m_calonketuabemf->getCalonBemF($nim, $nim2);
+			if($cek->num_rows()!= 0){
+				$this->session->set_flashdata('submit_gagal', 'terdeteksi');
+				redirect('Page/tambahcalonketuabemf');
+			}else{
+				$this->m_calonketuabemf->addCalonBemF($id, $nim, $nim2, $nama, $nama2, $departemen, $departemen2, $foto);
+			}
+			
+			$this->session->set_flashdata('submit_berhasil', 'berhasil');
+			redirect('Page/dashboardAdmin');
+
+		}
+		
 	}
 
 	public function editcalonketuabemundip()

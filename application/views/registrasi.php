@@ -25,15 +25,6 @@
         <br>
         <h1 class="text-center">REGISTRASI CALON PEMILIH</h1>
 
-        <?php if ($this->session->flashdata('gagal_upload_foto')) : ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                Registrasi <strong> Gagal </strong> Karena Foto <strong><?= $this->session->flashdata('gagal_upload_foto'); ?> !</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <?php endif; ?>
-
         <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nim">Silahkan cek Nomor Induk Mahasiswa</label>
@@ -83,12 +74,7 @@
             <div class="form-group">
                 <label for="gambar">Bukti Foto Selfie dengan KTM</label>
                 <input id="foto" name="foto" type="file" class="form-control-file" />
-                <small class="form-text text-muted">File foto yang diupload harus sesuai dengan fomat JPG / JPEG / PNG</small>
-                <?php if ($this->session->flashdata('no_foto')) : ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?= $this->session->flashdata('no_foto'); ?>
-                    </div>
-                <?php endif; ?>
+                <small class="form-text text-muted">File foto yang diupload harus sesuai dengan fomat JPG / JPEG / PNG max 2mb</small>
             </div>
 
             <br><br>
@@ -107,14 +93,36 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+    <?php if ($this->session->flashdata('gagal_upload_foto')) : ?>
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Registrasi Gagal..',
+                text: 'Foto tidak sesuai format atau ukuran melebihi 2 mb !',
+            });
+        </script>
+    <?php endif; ?>
+
+
+    <?php if ($this->session->flashdata('no_foto')) : ?>
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Registrasi Gagal...',
+                text: 'Silahkan masukan foto selfie dengan ktm anda terlebih dahulu!',
+            });
+        </script>
+    <?php endif; ?>
 
     <!-- Script auto fill ragistrasi -->
-
+        
     <script type="text/javascript">
         function autofill_registrasi(){
             var nim =document.getElementById('nim').value;
             $.ajax({
-                url:"<?php echo base_url();?>index.php/Page/get_data_pemilih",
+                url:"<?php echo base_url();?>index.php/Page/get_data_nim",
                 method : "POST",
                 data: {nim: nim},
                 dataType : 'json',

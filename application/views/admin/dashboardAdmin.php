@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/aos/aos.css' ?>">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/animate.css/animate.min.css' ?>">
 
-    <title>Pemira Online</title>
+    <title>Admin Pemira Online</title>
 </head>
 
 <body>
@@ -38,7 +38,8 @@
                 </a>
             </div>
             <div class="col-12 col-md-3 text-center">
-                <a href="" data-toggle="modal" data-target="#pilih">
+            <!-- data-toggle="modal" data-target="#pilih" -->
+                <a href="<?php echo base_url() . 'page/tambahcalonketuabemf' ?>" >   
                     <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
                     <h1>Submit Calon</h1>
                 </a>
@@ -83,6 +84,16 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <?php if ($this->session->flashdata('submit_berhasil')) : ?>
+        <script>
+            Swal.fire(
+                'Submit Calon Berhasil',
+                'Data calon sudah masuk ke dalam database !',
+                'success'
+            )
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>
