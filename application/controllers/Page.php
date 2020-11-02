@@ -396,7 +396,16 @@ class Page extends CI_Controller
 
 	public function dashboardUser()
 	{
-		$this->load->view('dashboardUser');
+		$this->load->model('m_pengaturanhasil');
+		$cek_waktu = $this->m_pengaturanhasil->getWaktu();
+
+		if($cek_waktu->num_rows()!= 0){
+			$cek=$cek_waktu->row_array();
+			$data['waktu'] = $cek['aturan'];
+		}else{
+			$data['waktu'] = false;
+		}
+		$this->load->view('dashboardUser', $data);
 	}
 
 	public function dashboardAdmin()
@@ -854,46 +863,7 @@ class Page extends CI_Controller
 
 		$this->load->model('m_pengaturanhasil');
 		$time = $this->input->post('time');
-
-		//formatting $time 2222-04-02T13:24
-		$time = explode("-",$time);
-		$tahun = $time[0];
-		$bulan = $time[1];
-
-		if ($bulan == '01'){
-			$bulan = 'Jan';
-		}elseif($bulan == '02'){
-			$bulan = 'Feb';
-		}elseif($bulan == '03'){
-			$bulan = 'Mar';
-		}elseif($bulan == '04'){
-			$bulan = 'Apr';
-		}elseif($bulan == '05'){
-			$bulan = 'May';
-		}elseif($bulan == '06'){
-			$bulan = 'Jun';
-		}elseif($bulan == '07'){
-			$bulan = 'Jul';
-		}elseif($bulan == '08'){
-			$bulan = 'Aug';
-		}elseif($bulan == '09'){
-			$bulan = 'Sep';
-		}elseif($bulan == '10'){
-			$bulan = 'Oct';
-		}elseif($bulan == '11'){
-			$bulan = 'Nov';
-		}elseif($bulan == '12'){
-			$bulan = 'Dec';
-		}
-		$hari = substr($time[2], 0,2);
-		$jam = substr($time[2],3,5);
-		$menit = substr($time[2],6,8);
-
-		//Nov 02, 2020 17:37:00  Dec , 2020 ::00
-		$time_final = $bulan." ".$hari.", ".$tahun." ".$jam.":".$menit;
-
-
-		$this->m_pengaturanhasil->addData($time_final, $this->session->userdata('nama'), $waktu);
+		$this->m_pengaturanhasil->addData($time, $this->session->userdata('nama'), $waktu);
 		$this->session->set_flashdata('berhasil', 'berhasil');
 		redirect('Page/hasilvoteAdmin');
 	}

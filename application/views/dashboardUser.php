@@ -31,14 +31,24 @@
         <br>
         <div class="row">
             <div class="col-12 col-md-6 text-center mb-5 mb-md-0">
-                <?php if ($this->session->userdata('hak_pilih') == 0) : ?>
+                <?php
+                    if ( function_exists( 'date_default_timezone_set' ) ){
+                        date_default_timezone_set('Asia/Jakarta');
+                        $now = date("Y-m-d H:i:s");
+                    }
+                    if($waktu < $now) :
+                ?>
+                    <a href="#" onclick="waktuHabis()">
+                <?php else : ?>
+                    <?php if ($this->session->userdata('hak_pilih') == 0) : ?>
                     <a href="<?php echo base_url() . 'page/voting' ?>">
                     <?php else : ?>
-                        <a href="#" onclick="sudahMemilih()">
-                        <?php endif; ?>
-                        <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
-                        <h1>Voting</h1>
-                        </a>
+                    <a href="#" onclick="sudahMemilih()">
+                    <?php endif; ?>
+                <?php endif; ?>
+                <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
+                <h1>Voting</h1>
+                </a>
 
             </div>
             <div class="col-12 col-md-6 text-center">
@@ -80,6 +90,13 @@
                 text: 'Pemilihan hanya dapat dilakukan sekali!'
             });
         }
+        function waktuHabis(){
+            Swal.fire({
+                icon: 'error',
+                title: 'Waktu sudah habis',
+                text: 'Pemilihan hanya dapat dilakukan di waktu yang telah ditentukan!'
+            });
+        } 
     </script>
 </body>
 

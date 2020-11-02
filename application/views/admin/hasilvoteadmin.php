@@ -289,6 +289,7 @@
 		  // If the count down is finished, write some text
 		  if (distance < 0) {
 		    clearInterval(x);
+            // hasil.innerHTML = "Hasil akan ditampilkan ke umum dalam : <br>" + "00d 00h 00m 00s";
 		    hasil.style.display='none';
 		  }
 		}, 1000);

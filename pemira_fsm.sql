@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2020 at 12:11 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
+-- Generation Time: Nov 02, 2020 at 03:33 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -1969,7 +1968,7 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 ('24060117120044', 'WAHYU ADI KUSUMA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117120045', 'OBED REINHARD SIREGAR', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117120046', 'NI\'MAH KHOIRIYAH AYYIYAH', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117130048', 'ANANDA PRABU TRITYA VIJAYA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
+('24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'navi270499@gmail.com', 'Informatika', 'Sains dan Matematika', 0, '123', 2, '24060117130048.jpg'),
 ('24060117130049', 'PRASETYO ADI SASONGKO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130050', 'SATRIA KEMAL PRAWIRA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130051', 'ANGGA DHARMA ISWARA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -2127,9 +2126,9 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 ('24060118130065', 'AKHMAD FADLIL KHAKIM', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130066', 'MILLENIO RACHMAT PRAYOGO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130067', 'ANDIEN DWI NOVIKA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060118130068', 'AKBAR FALIH HUSODO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060118130069', 'ERWIN FARISKAYANA RIZQI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, '');
+('24060118130068', 'AKBAR FALIH HUSODO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, '');
 INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `status`, `password`, `registrasi`, `foto_ktm`) VALUES
+('24060118130069', 'ERWIN FARISKAYANA RIZQI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130070', 'RIZKI CAHYA PRADANA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130071', 'MUHAMMAD DIMAS ANDHIKA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130073', 'ABE RANDA PUTRA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -2519,6 +2518,7 @@ CREATE TABLE `kandidat_bemf` (
 --
 
 INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`) VALUES
+('6011713004860117130049', '24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'Informatika', '24060117130049', 'PRASETYO ADI SASONGKO', 'Informatika', 0, 'paslon_24060117130048_24060117130049.jpg'),
 ('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 6, 'paslon_24060117130078_24060117130068.jpg'),
 ('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg');
 
@@ -3893,7 +3893,7 @@ INSERT INTO `matematika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `sta
 CREATE TABLE `pengaturan_hasil` (
   `nama_admin` varchar(255) NOT NULL,
   `waktu` datetime NOT NULL,
-  `aturan` varchar(50) NOT NULL
+  `aturan` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -3901,7 +3901,15 @@ CREATE TABLE `pengaturan_hasil` (
 --
 
 INSERT INTO `pengaturan_hasil` (`nama_admin`, `waktu`, `aturan`) VALUES
-('Jordan', '2020-11-02 18:04:12', 'Nov 02, 2020 20:30:30');
+('Jordan', '2020-11-02 18:04:12', '0000-00-00 00:00:00'),
+('Jordan', '2020-11-02 21:14:23', '2020-11-28 21:14:00'),
+('Jordan', '2020-11-02 21:18:23', '2020-11-03 21:18:00'),
+('Jordan', '2020-11-02 21:18:33', '2020-11-02 22:18:00'),
+('Jordan', '2020-11-02 21:18:47', '2020-11-02 21:21:00'),
+('Jordan', '2020-11-02 21:18:59', '2020-11-02 21:18:00'),
+('Jordan', '2020-11-02 21:29:50', '2020-11-12 21:29:00'),
+('Jordan', '2020-11-02 21:30:57', '2020-11-02 21:34:00'),
+('Jordan', '2020-11-02 21:31:26', '2020-11-02 21:31:00');
 
 -- --------------------------------------------------------
 
