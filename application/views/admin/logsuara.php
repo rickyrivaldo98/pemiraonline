@@ -87,7 +87,6 @@
                         <td><?php echo $row['waktu']; ?></td>
                         <td><?php echo $row['nim']; ?></td>
                         <td><?php echo $row['departemen']; ?></td>
-                        <td>Paslon <?php echo $row['nama_ketua']; ?> & <?php echo $row['nama_wakil']; ?> </td>
                     </tr>
                     <?php 
                         $i++ ;
