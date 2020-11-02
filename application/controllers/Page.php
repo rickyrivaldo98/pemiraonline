@@ -807,6 +807,12 @@ class Page extends CI_Controller
 
 	public function hasilvoteAdmin()
 	{
-		$this->load->view('admin/hasilvoteadmin');
+		$this->load->model('m_calonketuabemf');
+		$data['calon'] = $this->m_calonketuabemf->getDataCalon();
+		$this->load->view('admin/hasilvoteadmin', $data);
+	}
+
+	public function getHasilVote() {
+		
 	}
 }
