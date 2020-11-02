@@ -39,6 +39,7 @@
             </span>
             <span class="text"><b>Atur Waktu</b></span>
         </a>
+        <!--
         <h1>Hasil Vote Calon Ketua BEM UNDIP</h1>
         <table style="width: 100%;" id="table-1" class="table table-bordered table-striped">
             <thead style="background-color: white;">
@@ -80,8 +81,9 @@
                 </tr>
             </tfoot>
         </table>
+                    -->
         <br>
-        <h1>Hasil Vote Calon Ketua BEM Fakultas A</h1>
+        <h1>Hasil Vote Calon Ketua BEM Fakultas FSM</h1>
         <table style="width: 100%;" id="table-2" class="table table-bordered table-striped">
             <thead style="background-color: white;">
                 <tr>
@@ -97,12 +99,21 @@
             </style>
             <div>
                 <tbody class="belang">
-                    <?php $i = 0 ?>
+                    <?php 
+                        if ($calon):
+                            $i = 1 ;
+                            foreach($calon as $row) :
+                    ?>
                     <tr>
-                        <td><?php echo $i+1; ?></td>
-                        <td><?php echo $calon[$i]['nama_ketua']; ?></td>
-                        <td><?php echo $calon[$i]['suara']; ?></td>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $row['nama_ketua']; ?></td>
+                        <td><?php echo $row['suara']; ?></td>
                     </tr>
+                    <?php 
+                        $i++ ;
+                        endforeach;
+                        endif;
+                    ?>
                 </tbody>
             </div>
             <tfoot style="background-color: white;">
@@ -113,6 +124,7 @@
                 </tr>
             </tfoot>
         </table>
+        <!--
         <br>
         <h1>Hasil Vote Calon Ketua BEM Fakultas B</h1>
         <table style="width: 100%;" id="table-3" class="table table-bordered table-striped">
@@ -146,6 +158,7 @@
                 </tr>
             </tfoot>
         </table>
+            -->
         <br>
         <br>
     </div>
