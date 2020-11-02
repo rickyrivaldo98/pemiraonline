@@ -24,7 +24,7 @@
         <br>
         <br>
         <br>
-        <h1 class="text-center">SELAMAT DATANG USER123</h1>
+        <h1 class="text-center">SELAMAT DATANG <?= ($this->session->userdata('nama')) ?></h1>
         <h1 class="text-center">DI DASHBOARD PEMIRA ONLINE 2020</h1>
         <br>
         <br>
@@ -81,9 +81,9 @@
             )
         </script>
     <?php endif; ?>
-    
+
     <script>
-        function sudahMemilih(){
+        function sudahMemilih() {
             Swal.fire({
                 icon: 'error',
                 title: 'Anda Sudah Memilih',
