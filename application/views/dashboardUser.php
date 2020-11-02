@@ -24,7 +24,7 @@
         <br>
         <br>
         <br>
-        <h1 class="text-center">SELAMAT DATANG USER123</h1>
+        <h1 class="text-center">SELAMAT DATANG <?= ($this->session->userdata('nama')) ?></h1>
         <h1 class="text-center">DI DASHBOARD PEMIRA ONLINE 2020</h1>
         <br>
         <br>
@@ -32,13 +32,13 @@
         <div class="row">
             <div class="col-12 col-md-6 text-center mb-5 mb-md-0">
                 <?php if ($this->session->userdata('hak_pilih') == 0) : ?>
-                <a href="<?php echo base_url() . 'page/voting' ?>">
-                <?php else : ?>
-                <a href="#" onclick="sudahMemilih()">
-                <?php endif; ?>
-                    <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
-                    <h1>Voting</h1>
-                </a>
+                    <a href="<?php echo base_url() . 'page/voting' ?>">
+                    <?php else : ?>
+                        <a href="#" onclick="sudahMemilih()">
+                        <?php endif; ?>
+                        <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/4.png' ?>" alt="">
+                        <h1>Voting</h1>
+                        </a>
 
             </div>
             <div class="col-12 col-md-6 text-center">
@@ -71,15 +71,15 @@
             )
         </script>
     <?php endif; ?>
-    
+
     <script>
-        function sudahMemilih(){
+        function sudahMemilih() {
             Swal.fire({
                 icon: 'error',
                 title: 'Anda Sudah Memilih',
                 text: 'Pemilihan hanya dapat dilakukan sekali!'
             });
-        } 
+        }
     </script>
 </body>
 
