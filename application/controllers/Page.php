@@ -820,6 +820,39 @@ class Page extends CI_Controller
 		$this->load->view('admin/hasilvoteadmin', $data);
 	}
 
+	public function log()
+	{
+		$this->load->model('m_logsuara');
+		$data['log'] = $this->m_logsuara->getLog();
+
+		//total suara masuk
+		$jumlah_suara = $this->m_logsuara->countLog();
+
+		//total suara pemilih
+		$suara_Biologi = $this->m_logsuara->countBiologi();
+		$suara_Bioteknologi = $this->m_logsuara->countBioteknologi();
+		$suara_Kimia = $this->m_logsuara->countKimia();
+		$suara_Fisika = $this->m_logsuara->countFisika();
+		$suara_Statistika = $this->m_logsuara->countStatistika();
+		$suara_Matematika = $this->m_logsuara->countMatematika();
+		$suara_Informatika = $this->m_logsuara->countInformatika();
+
+		$suara_Biologi = (integer)$suara_Biologi['jumlah'];
+		$suara_Bioteknologi = (integer)$suara_Bioteknologi['jumlah'];
+		$suara_Kimia = (integer)$suara_Kimia['jumlah'];
+		$suara_Fisika = (integer)$suara_Fisika['jumlah'];
+		$suara_Statistika = (integer)$suara_Statistika['jumlah'];
+		$suara_Matematika = (integer)$suara_Matematika['jumlah'];
+		$suara_Informatika = (integer)$suara_Informatika['jumlah'];
+		$total_suara_pemilih = $suara_Biologi+$suara_Bioteknologi+$suara_Fisika+$suara_Kimia+$suara_Matematika+$suara_Statistika+$suara_Informatika;
+
+		//presentase suara terpakai
+		$data['suara_terpakai']= (integer)$jumlah_suara/(integer)$total_suara_pemilih*100;
+		$data['suara_terpakai']= number_format($data['suara_terpakai'],4);
+		$this->load->view('admin/logsuara', $data);
+
+	}
+
 	public function getHasilVote() {
 		
 	}
