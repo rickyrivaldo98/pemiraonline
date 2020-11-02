@@ -30,7 +30,15 @@
         <h1 class="text-center mt-4 mt-md-0">Hasil Voting Calon Ketua BEM</h1>
         <br>
         <br>
-
+        <div class="alert alert-info text-center" role="alert" id="hasil">
+        
+        </div>
+        <a href="" class="btn btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#modalAturWaktu">
+            <span class="icon text-white-50">
+            <i class="fas fa-cog"></i>
+            </span>
+            <span class="text"><b>Atur Waktu</b></span>
+        </a>
         <h1>Hasil Vote Calon Ketua BEM UNDIP</h1>
         <table style="width: 100%;" id="table-1" class="table table-bordered table-striped">
             <thead style="background-color: white;">
@@ -205,6 +213,73 @@
             });
         });
     </script>
+
+
+    <div class="modal fade" id="modalAturWaktu" tabindex="-1" role="dialog" aria-labelledby="modalAturWaktu" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Pengaturan Waktu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <form method="post" action="<?php echo base_url() . 'Page/atur_waktu' ?>">
+                <div class="form-group">
+                    <label for="nama">Atur Waktu</label>
+                    <input type="datetime-local" id="time" name="time" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script alert sukses Pengaturan -->
+    <?php if ($this->session->flashdata('berhasil')) : ?>
+    <script>
+        Swal.fire(
+            'Success',
+            'Pengaturan Waktu Berhasil !',
+            'success'
+        )
+    </script>
+    <?php endif; ?>
+    <!-- end script alert sukses Pengaturan -->
+
+    <script>
+		// Set the date we're counting down to
+		var countDownDate = new Date(<?php echo '"'.$waktu.'"';?>).getTime();
+		var hasil=document.getElementById('hasil');
+		// Update the count down every 1 second
+		var x = setInterval(function() {
+
+		  // Get today's date and time
+		  var now = new Date().getTime();
+
+		  // Find the distance between now and the count down date
+		  var distance = countDownDate - now;
+		  // Time calculations for days, hours, minutes and seconds
+		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		  var time_left = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+		  hasil.innerHTML = "Hasil akan ditampilkan ke umum dalam : <br>" + time_left;
+		  //console.log(time_left);
+		  // If the count down is finished, write some text
+		  if (distance < 0) {
+		    clearInterval(x);
+		    hasil.style.display='none';
+		  }
+		}, 1000);
+	</script>
 </body>
 
 </html>

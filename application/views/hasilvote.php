@@ -121,7 +121,7 @@
 
     <script>
 		// Set the date we're counting down to
-		var countDownDate = new Date("Nov 2, 2020 13:21:00").getTime();
+		var countDownDate = new Date(<?php echo '"'.$waktu.'"';?>).getTime();
 		var hasil=document.getElementById('hasil');
         var hasil2=document.getElementById('hasil2');
 		// Update the count down every 1 second
@@ -138,11 +138,9 @@
 		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-		  // Display the result in the element with id="demo"
 		  var time_left = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 		  hasil.innerHTML = "Hasil akan ditampilkan dalam : <br>" + time_left;
-		  console.log(time_left);
-		  // If the count down is finished, write some text
+		  //console.log(time_left);
 		  if (distance < 0) {
 		    clearInterval(x);
 		    hasil.style.display='none';
@@ -224,12 +222,6 @@
         });
     </script>
     <!-- END script untuk pie chart -->
-
-    <!-- otomatisasi tinggi -->
-    <script>
-    var elmnt = document.getElementById("myDIV");
-    document.getElementById("myBtn").style.height = "50px";
-    </script>
 </body>
 
 </html>

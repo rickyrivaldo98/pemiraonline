@@ -470,7 +470,16 @@ class Page extends CI_Controller
 		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == '1' || $this->session->userdata('akses') == '2' ){
 			redirect('Page/index');
 		}
+		$this->load->model('m_pengaturanhasil');
 		$this->load->model('m_calonketuabemf');
+		$cek_waktu = $this->m_pengaturanhasil->getWaktu();
+
+		if($cek_waktu->num_rows()!= 0){
+			$cek=$cek_waktu->row_array();
+			$data['waktu'] = $cek['aturan'];
+		}else{
+			$data['waktu'] = false;
+		}
 		$data['calon'] = $this->m_calonketuabemf->getDataCalon();
 		$data['calon1'] = $this->m_calonketuabemf->getDataCalon2();
 		$data['suara'] = $this->m_calonketuabemf->countSuaraCalon();
@@ -815,13 +824,85 @@ class Page extends CI_Controller
 
 	public function hasilvoteAdmin()
 	{
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_pengaturanhasil');
 		$this->load->model('m_calonketuabemf');
+		$cek_waktu = $this->m_pengaturanhasil->getWaktu();
+
+		if($cek_waktu->num_rows()!= 0){
+			$cek=$cek_waktu->row_array();
+			$data['waktu'] = $cek['aturan'];
+		}else{
+			$data['waktu'] = false;
+		}
 		$data['calon'] = $this->m_calonketuabemf->getDataCalon();
 		$this->load->view('admin/hasilvoteadmin', $data);
 	}
 
+	public function atur_waktu()
+	{	
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+
+		if ( function_exists( 'date_default_timezone_set' ) ){
+    		date_default_timezone_set('Asia/Jakarta');
+			$waktu = date("Y-m-d H:i:s");
+		}
+
+		$this->load->model('m_pengaturanhasil');
+		$time = $this->input->post('time');
+
+		//formatting $time 2222-04-02T13:24
+		$time = explode("-",$time);
+		$tahun = $time[0];
+		$bulan = $time[1];
+
+		if ($bulan == '01'){
+			$bulan = 'Jan';
+		}elseif($bulan == '02'){
+			$bulan = 'Feb';
+		}elseif($bulan == '03'){
+			$bulan = 'Mar';
+		}elseif($bulan == '04'){
+			$bulan = 'Apr';
+		}elseif($bulan == '05'){
+			$bulan = 'May';
+		}elseif($bulan == '06'){
+			$bulan = 'Jun';
+		}elseif($bulan == '07'){
+			$bulan = 'Jul';
+		}elseif($bulan == '08'){
+			$bulan = 'Aug';
+		}elseif($bulan == '09'){
+			$bulan = 'Sep';
+		}elseif($bulan == '10'){
+			$bulan = 'Oct';
+		}elseif($bulan == '11'){
+			$bulan = 'Nov';
+		}elseif($bulan == '12'){
+			$bulan = 'Dec';
+		}
+		$hari = substr($time[2], 0,2);
+		$jam = substr($time[2],3,5);
+		$menit = substr($time[2],6,8);
+
+		//Nov 02, 2020 17:37:00  Dec , 2020 ::00
+		$time_final = $bulan." ".$hari.", ".$tahun." ".$jam.":".$menit;
+
+
+		$this->m_pengaturanhasil->addData($time_final, $this->session->userdata('nama'), $waktu);
+		$this->session->set_flashdata('berhasil', 'berhasil');
+		redirect('Page/hasilvoteAdmin');
+	}
+
 	public function log()
 	{
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
 		$this->load->model('m_logsuara');
 		$data['log'] = $this->m_logsuara->getLog();
 
