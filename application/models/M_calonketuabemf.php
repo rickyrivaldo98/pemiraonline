@@ -3,8 +3,8 @@ class M_calonketuabemf extends CI_Model
 {
 	function addCalonBemF($id, $nim, $nim2, $nama, $nama2, $departemen, $departemen2, $foto)
 	{
-		$this->db->query("INSERT INTO kandidat_bemf (id_kandidat, nim_ketua, nama_ketua, departemen_ketua, nim_wakil, nama_wakil, departemen_wakil, suara, foto)
-        VALUES ('$id', '$nim', '$nama', '$departemen', '$nim2', '$nama2', '$departemen2', 0, '$foto')");
+		$this->db->query("INSERT INTO kandidat_bemf (id_kandidat, nim_ketua, nama_ketua, departemen_ketua, nim_wakil, nama_wakil, departemen_wakil, suara, foto, no_paslon)
+        VALUES ('$id', '$nim', '$nama', '$departemen', '$nim2', '$nama2', '$departemen2', 0, '$foto', 0)");
     }
     
     function getCalonBemF($nim, $nim2)
@@ -15,7 +15,7 @@ class M_calonketuabemf extends CI_Model
     
     function getDataCalon()
 	{
-		return $this->db->query("SELECT * FROM kandidat_bemf ORDER BY id_kandidat DESC")->result_array();
+		return $this->db->query("SELECT * FROM kandidat_bemf ORDER BY no_paslon ASC")->result_array();
 	}
 
 	function getDataCalon1($id_kandidat)
@@ -46,6 +46,13 @@ class M_calonketuabemf extends CI_Model
 	function updateSuara($id_kandidat)
 	{
 		$this->db->query("UPDATE kandidat_bemf SET suara = suara + 1 WHERE id_kandidat = '$id_kandidat'");
+	}
+
+	function updateNomor($id_kandidat, $no_paslon)
+	{
+		for($i=0; $i<count($id_kandidat); $i++) {
+			$this->db->query("UPDATE kandidat_bemf SET no_paslon = '$no_paslon[$i]' WHERE id_kandidat = '$id_kandidat[$i]'");
+		}
 	}
     
 

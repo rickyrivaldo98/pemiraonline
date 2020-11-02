@@ -907,4 +907,20 @@ class Page extends CI_Controller
 	public function getHasilVote() {
 		
 	}
+
+	public function aturnomor() {
+		$this->load->model('m_calonketuabemf');
+		$data['calon'] = $this->m_calonketuabemf->getDataCalon();
+		$this->load->view('admin/nomorpaslon', $data);
+	}
+
+	public function updatenomor() {
+		$this->load->model('m_calonketuabemf');
+		$id_kandidat = $this->input->POST('id_kandidat');
+		$no_paslon = $this->input->POST('no_paslon');
+		$this->m_calonketuabemf->updateNomor($id_kandidat,$no_paslon);
+		$data = true;
+		$this->session->set_flashdata('update','berhasil');
+		echo json_encode($data);
+	}
 }

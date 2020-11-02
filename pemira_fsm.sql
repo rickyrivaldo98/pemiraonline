@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2020 at 03:33 PM
+-- Generation Time: Nov 02, 2020 at 07:25 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -2510,17 +2510,18 @@ CREATE TABLE `kandidat_bemf` (
   `nama_wakil` varchar(60) NOT NULL,
   `departemen_wakil` varchar(20) NOT NULL,
   `suara` int(11) NOT NULL,
-  `foto` varchar(255) NOT NULL
+  `foto` varchar(255) NOT NULL,
+  `no_paslon` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `kandidat_bemf`
 --
 
-INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`) VALUES
-('6011713004860117130049', '24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'Informatika', '24060117130049', 'PRASETYO ADI SASONGKO', 'Informatika', 0, 'paslon_24060117130048_24060117130049.jpg'),
-('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 6, 'paslon_24060117130078_24060117130068.jpg'),
-('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg');
+INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`, `no_paslon`) VALUES
+('6011713004860117130049', '24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'Informatika', '24060117130049', 'PRASETYO ADI SASONGKO', 'Informatika', 0, 'paslon_24060117130048_24060117130049.jpg', 2),
+('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 6, 'paslon_24060117130078_24060117130068.jpg', 1),
+('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -3909,7 +3910,8 @@ INSERT INTO `pengaturan_hasil` (`nama_admin`, `waktu`, `aturan`) VALUES
 ('Jordan', '2020-11-02 21:18:59', '2020-11-02 21:18:00'),
 ('Jordan', '2020-11-02 21:29:50', '2020-11-12 21:29:00'),
 ('Jordan', '2020-11-02 21:30:57', '2020-11-02 21:34:00'),
-('Jordan', '2020-11-02 21:31:26', '2020-11-02 21:31:00');
+('Jordan', '2020-11-02 21:31:26', '2020-11-02 21:31:00'),
+('Jordan', '2020-11-02 21:35:31', '2020-11-20 21:35:00');
 
 -- --------------------------------------------------------
 
