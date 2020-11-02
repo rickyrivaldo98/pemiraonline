@@ -23,22 +23,22 @@
   <header>
     <div class=" jumbotron jumbotron-fluid" id="header">
       <!-- <div class="container"> -->
-      <br><br><br>
-
-      <div class="row">
+        <!-- <br><br><br> -->
+      <div class="row mt-md-4"></div>
+      <div class="row mt-md-5 mt-5">
         <div class="col-md-4 col-sm-12 logonav">
-          <img class="rounded float-right" src="<?php echo base_url() . 'assets/img/logo.png' ?>" alt="">
+          <img class="rounded float-md-right mx-auto d-block" src="<?php echo base_url() . 'assets/img/logo.png' ?>" alt="">
         </div>
         <div class="col-md-8 col-sm-12 tulisannav">
-          <h3 class="animate__animated animate__fadeInLeft animate__delay-1s"> SELAMAT DATANG</h3>
-          <h1 class="animate__animated animate__fadeInLeft animate__delay-1s"> PEMIRA ONLINE</h1>
-          <h1 class="animate__animated animate__fadeInLeft animate__delay-1s"> UNIVERSITAS DIPONEGORO</h1>
-          <p class="animate__animated animate__fadeInLeft animate__delay-2s"> <i>“Mari Menjadi Pemilih Yang Baik”</i> </p>
+          <h3 class="text-center text-md-left animate__animated animate__fadeInLeft animate__delay-1s"> SELAMAT DATANG</h3>
+          <h1 class="text-center text-md-left animate__animated animate__fadeInLeft animate__delay-1s"> PEMIRA ONLINE</h1>
+          <h1 class="text-center text-md-left animate__animated animate__fadeInLeft animate__delay-1s"> UNIVERSITAS DIPONEGORO</h1>
+          <p class="text-center text-md-left animate__animated animate__fadeInLeft animate__delay-2s"> <i>“Mari Menjadi Pemilih Yang Baik”</i> </p>
         </div>
       </div>
       <div class="regis text-center">
         <h3>Belum Registrasi?</h3>
-        <a type="button" class="btn btn-danger btn-lg" href="<?php echo base_url() . 'page/registrasi' ?>">REGISTRASI DISINI</a>
+        <a type="button" class="btn btn-danger btn-lg btn-color" href="<?php echo base_url() . 'page/registrasi' ?>">REGISTRASI DISINI</a>
         <h6>Jika Sudah, silahkan login</h6>
       </div>
 

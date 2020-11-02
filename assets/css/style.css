@@ -71,6 +71,7 @@ nav {
 .tulisannav {
 	margin-top: 90px;
 	color: black;
+	z-index: 999;
 }
 
 .regis {
@@ -164,4 +165,24 @@ nav {
 
 .footer-copyright a:hover {
 	color: #ff4654;
+}
+
+@media only screen and (max-width: 480px)  {
+	h1 {
+		font-size: 24px !important;
+	}
+	h3 {
+		font-size: 20px !important;
+	}
+	.tulisannav {
+		margin-top: 40px !important;
+	}
+	.btn-color {
+		background-color: white !important;
+		color: #B93B48 !important;
+		font-weight: bold;
+	}
+	.regis {
+		z-index: 999;
+	}
 }
