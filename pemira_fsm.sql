@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2020 at 03:00 PM
+-- Generation Time: Nov 02, 2020 at 12:11 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -47,7 +47,7 @@ CREATE TABLE `biologi` (
 INSERT INTO `biologi` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `status`, `password`, `registrasi`, `foto_ktm`) VALUES
 ('24020113120041', 'HARMIGITA PUTRI FITRIANI', 'andyanjordan1153@gmail.com', 'Biologi', 'Sains dan Matematika', 1, '123123', 2, '24020113120041.jpg'),
 ('24020113120049', 'WIDYA ZEKI RAVELIA', 'andyanjordan1153@gmail.com', 'Biologi', 'Sains dan Matematika', 0, '1111', 0, '24020113120049.jpg'),
-('24020113120063', 'SHAFIRA PURWADHANI', 'dagammav@gmail.com', 'Biologi', 'Sains dan Matematika', 0, '12313', 1, '24020113120063.jpg'),
+('24020113120063', 'SHAFIRA PURWADHANI', 'dagammav@gmail.com', 'Biologi', 'Sains dan Matematika', 1, '12313', 2, '24020113120063.jpg'),
 ('24020113130069', 'SHANTI TRISTA M R', '', 'Biologi', 'Sains dan Matematika', 0, '', 0, ''),
 ('24020113140070', 'GARIN FAIRUZZAKI FIRDAUS', '', 'Biologi', 'Sains dan Matematika', 0, '', 0, ''),
 ('24020113140076', 'MOONICA DWI RISTAWAN', '', 'Biologi', 'Sains dan Matematika', 0, '', 0, ''),
@@ -1998,7 +1998,7 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 ('24060117130075', 'NAUFAL DHIYA` FALAAH', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130076', 'M. NURFAJAR IQBAL B', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130077', 'PRAYOGA DWI SAPUTRO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'andyanjordan1153@gmail.com', 'Informatika', 'Sains dan Matematika', 0, '123132', 1, '24060117130078.jpg'),
+('24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'andyanjordan1153@gmail.com', 'Informatika', 'Sains dan Matematika', 1, '123123', 2, '24060117130078.jpg'),
 ('24060117130079', 'ABRAHAM IMANUEL KURNIAWAN', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130080', 'MUHAMMAD FAISHAL FARRAS', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130081', 'MICHAEL AXEL PANGESTU', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -2015,7 +2015,7 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 ('24060117140051', 'ACHMAD ZAKIYYUDIN', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117140052', 'MUHAMMAD RIEVNALDHI RAEVDHA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117140053', 'ABDUL HADI EFENDI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117140054', 'RICKY RIVALDO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
+('24060117140054', 'RICKY RIVALDO', 'jorghi.adyuta10@gmail.com', 'Informatika', 'Sains dan Matematika', 1, '123123', 2, '24060117140054.jpg'),
 ('24060117140055', 'ERGA FAHMA PUTRA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117140056', 'AJI BASKORO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117140057', 'FREDO MAURTINO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -2519,7 +2519,7 @@ CREATE TABLE `kandidat_bemf` (
 --
 
 INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`) VALUES
-('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 2, 'paslon_24060117130078_24060117130068.jpg'),
+('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 6, 'paslon_24060117130078_24060117130068.jpg'),
 ('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg');
 
 -- --------------------------------------------------------
@@ -3240,8 +3240,12 @@ CREATE TABLE `log_suara` (
 --
 
 INSERT INTO `log_suara` (`no`, `waktu`, `nim`, `departemen`, `kandidat`) VALUES
-(1, '2020-11-01 20:50:18', '24020113120041', 'Biologi', '6011713007'),
-(2, '2020-11-01 20:50:58', '24020113120041', 'Biologi', '6011713007860117130068');
+(1, '2020-11-01 20:50:18', '24020113120041', 'Biologi', '6011713007860117130068'),
+(2, '2020-11-01 20:50:58', '24020113120041', 'Biologi', '6011713007860117130068'),
+(3, '2020-11-02 12:44:28', '24020113120063', 'Biologi', '6011713007860117130068'),
+(4, '2020-11-02 12:45:30', '24020113120063', 'Biologi', '6011713007860117130068'),
+(5, '2020-11-02 12:49:51', '24060117130078', 'Informatika', '6011713007860117130068'),
+(6, '2020-11-02 12:51:25', '24060117140054', 'Informatika', '6011713007860117130068');
 
 -- --------------------------------------------------------
 
@@ -3879,6 +3883,25 @@ INSERT INTO `matematika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `sta
 ('24010120140169', 'MOHAMMAD MARTIZA ZAIDAN RAHMAN', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24010120140170', 'KARTIKA CAKA AYUNING DYALOKA', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24010120140171', 'KATELYN ANASTASSYA', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengaturan_hasil`
+--
+
+CREATE TABLE `pengaturan_hasil` (
+  `nama_admin` varchar(255) NOT NULL,
+  `waktu` datetime NOT NULL,
+  `aturan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengaturan_hasil`
+--
+
+INSERT INTO `pengaturan_hasil` (`nama_admin`, `waktu`, `aturan`) VALUES
+('Jordan', '2020-11-02 18:04:12', 'Nov 02, 2020 20:30:30');
 
 -- --------------------------------------------------------
 
@@ -4633,6 +4656,12 @@ ALTER TABLE `matematika`
   ADD PRIMARY KEY (`nim`);
 
 --
+-- Indexes for table `pengaturan_hasil`
+--
+ALTER TABLE `pengaturan_hasil`
+  ADD PRIMARY KEY (`waktu`);
+
+--
 -- Indexes for table `statistika`
 --
 ALTER TABLE `statistika`
@@ -4652,7 +4681,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `log_suara`
 --
 ALTER TABLE `log_suara`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

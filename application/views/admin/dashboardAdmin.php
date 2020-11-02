@@ -46,7 +46,7 @@
                 <a href="<?php echo base_url() . 'page/listcalonketuabem' ?>" class="btn btn-danger btn-lg mb-5 mb-md-0">List Calon Ketua Bem</a>
             </div>
             <div class="col-12 col-md-3 text-center mb-5 mb-md-0">
-                <a href="<?php echo base_url() . 'page/voting' ?>">
+                <a href="<?php echo base_url() . 'page/log' ?>">
                     <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/8.png' ?>" alt="">
                     <h1>Lihat Log</h1>
                 </a>
