@@ -32,6 +32,7 @@
         <br>
 
         <h1>List Calon Ketua BEM Fakultas Sains dan Matematika</h1>
+        <a href="<?php echo base_url() . 'page/aturnomor' ?>" class="btn btn-warning btn-lg mb-3">Atur Nomor Paslon</a>
         <table style="width: 100%;" id="table-1" class="table table-bordered table-striped">
             <thead style="background-color: white;">
                 <tr>

@@ -67,7 +67,6 @@
                     <th style="text-align: center; vertical-align: middle;">Waktu</th>
                     <th style="text-align: center; vertical-align: middle;">NIM</th>
                     <th style="text-align: center; vertical-align: middle;">Departemen</th>
-                    <th style="text-align: center; vertical-align: middle;">Pilihan</th>
                 </tr>
             </thead>
             <style>
@@ -101,7 +100,6 @@
                     <th style="text-align: center; vertical-align: middle;">Waktu</th>
                     <th style="text-align: center; vertical-align: middle;">NIM</th>
                     <th style="text-align: center; vertical-align: middle;">Departemen</th>
-                    <th style="text-align: center; vertical-align: middle;">Pilihan</th>
                 </tr>
             </tfoot>
         </table>
