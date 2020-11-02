@@ -29,7 +29,7 @@
         <br>
         <br>
         <!-- <form action="<?= base_url(); ?>Page/pilih_calon"> -->
-            <div class="row">
+            <div class="row justify-content-center">
                  <?php 
                     if ($calon):
                         $i = 1 ;
@@ -40,8 +40,8 @@
                     <div class="card ">
                         <img class="gambar_voting mx-auto d-block" src="<?php echo base_url() . 'calon/'.$row['foto'] ?>">
                         <h1>CALON <?= $i; ?></h1>
-                        <h4>Ketua : <?= $row['nama_ketua']; ?></h1>
-                        <h4>Wakil Ketua :  <?= $row['nama_wakil']; ?></h1>
+                        <h5>Ketua : <?= $row['nama_ketua']; ?></h5>
+                        <h5>Wakil Ketua :  <?= $row['nama_wakil']; ?></h5>
                     </div>
                 </label>
                 <?php 

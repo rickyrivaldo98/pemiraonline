@@ -15,12 +15,22 @@ class M_calonketuabemf extends CI_Model
     
     function getDataCalon()
 	{
-		return $this->db->query("SELECT * FROM kandidat_bemf")->result_array();
+		return $this->db->query("SELECT * FROM kandidat_bemf ORDER BY id_kandidat DESC")->result_array();
 	}
 
 	function getDataCalon1($id_kandidat)
 	{
 		return $this->db->query("SELECT * FROM kandidat_bemf WHERE id_kandidat = '$id_kandidat'")->row_array();
+	}
+
+	function getDataCalon2()
+	{
+		return $this->db->query("SELECT * FROM kandidat_bemf ORDER BY suara DESC")->result_array();
+	}
+
+	function countSuaraCalon()
+	{
+		return $this->db->query("SELECT SUM(suara) AS total FROM kandidat_bemf")->row_array();
 	}
 
 	function updateFotoCalon($id_kandidat, $foto)

@@ -466,8 +466,16 @@ class Page extends CI_Controller
 	}
 
 	public function hasilvote()
-	{
-		$this->load->view('hasilvote');
+	{	
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == '1' || $this->session->userdata('akses') == '2' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_calonketuabemf');
+		$data['calon'] = $this->m_calonketuabemf->getDataCalon();
+		$data['calon1'] = $this->m_calonketuabemf->getDataCalon2();
+		$data['suara'] = $this->m_calonketuabemf->countSuaraCalon();
+		
+		$this->load->view('hasilvote', $data);
 	}
 
 	public function verifikasi()
