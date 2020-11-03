@@ -103,7 +103,7 @@ nav {
 	width: 80%;
 	border: 5px solid whitesmoke;
 	border-radius: 40px;
-} 
+}
 
 .gambar_voting {
 	/* width: 548.66px; */
@@ -111,8 +111,10 @@ nav {
 	height: 300.41px;
 	min-width: 100%;
 	min-height: 100%;
-	object-fit: cover;
+	max-height: 20vh;
+	object-fit: contain;
 	object-position: center;
+	/* overflow: hidden; */
 }
 
 [type="radio"] {
@@ -167,7 +169,7 @@ nav {
 	color: #ff4654;
 }
 
-@media only screen and (max-width: 480px)  {
+@media only screen and (max-width: 480px) {
 	h1 {
 		font-size: 24px !important;
 	}
@@ -179,7 +181,7 @@ nav {
 	}
 	.btn-color {
 		background-color: white !important;
-		color: #B93B48 !important;
+		color: #b93b48 !important;
 		font-weight: bold;
 	}
 	.regis {
