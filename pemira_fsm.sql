@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
 -- Generation Time: Nov 16, 2020 at 04:52 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
-=======
--- Generation Time: Nov 13, 2020 at 08:26 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.26
->>>>>>> 55716d87fab6c82411cb5ec2a36ace2993426146
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -2526,18 +2520,11 @@ CREATE TABLE `kandidat_bemf` (
 -- Dumping data for table `kandidat_bemf`
 --
 
-<<<<<<< HEAD
 INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`, `visimisi`, `no_paslon`) VALUES
 ('6011713004860117130049', '24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'Informatika', '24060117130049', 'PRASETYO ADI SASONGKO', 'Informatika', 0, 'paslon_24060117130048_24060117130049.jpg', '<p><strong>Visi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Hehe</li>\r\n</ol>\r\n<p><strong>Misi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>', 3),
 ('6011713005060117120030', '24060117130050', 'SATRIA KEMAL PRAWIRA', 'Informatika', '24060117120030', 'ASYRAF HUMAM ARRAFIFIN', 'Informatika', 0, 'paslon_24060117130050_24060117120030.jpg', '<p style=\"text-align: center;\"><strong>Visi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Hehe</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>\r\n<p><strong>Misi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>', 1),
 ('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 6, 'paslon_24060117130078_24060117130068.jpg', '<p><strong>Visi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Heheaaaa</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>\r\n<p><strong>Misi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>', 2),
 ('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg', '<h1 style=\"text-align: center;\">Visi</h1>\r\n<ol>\r\n<li>test</li>\r\n</ol>', 4);
-=======
-INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`, `no_paslon`) VALUES
-('6011713004860117130049', '24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'Informatika', '24060117130049', 'PRASETYO ADI SASONGKO', 'Informatika', 1, 'paslon_24060117130048_24060117130049.jpg', 2),
-('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 6, 'paslon_24060117130078_24060117130068.jpg', 1),
-('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg', 3);
->>>>>>> 55716d87fab6c82411cb5ec2a36ace2993426146
 
 -- --------------------------------------------------------
 
