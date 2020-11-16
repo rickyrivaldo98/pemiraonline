@@ -720,6 +720,20 @@ class Page extends CI_Controller
 
 	}
 
+	public function editVisiMisi($id_kandidat) {
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		
+		$this->load->model('m_calonketuabemf');
+		$data['calon'] = $this->m_calonketuabemf->getDataCalon1($id_kandidat);
+
+		$visimisi = $this->input->post('visimisi');
+		$this->m_calonketuabemf->updateVisiMisi($id_kandidat, $visimisi);
+		$this->session->set_flashdata('edit_visimisi_berhasil','berhasil');
+		redirect('Page/listcalonketuabem');
+	}
+
 	public function hapus_data_calon(){
 		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
 			redirect('Page/index');
@@ -779,6 +793,7 @@ class Page extends CI_Controller
 			$nim2 = $this->input->post('nim2', true);
 			$nama2 = $this->input->post('nama2', true);
 			$departemen2 = $this->input->post('departemen2', true);
+			$visimisi = $this->input->post('visimisi');
 
 			$id = substr($nim, 3);
 			$id = $id.substr($nim2,3);
@@ -811,7 +826,7 @@ class Page extends CI_Controller
 				$this->session->set_flashdata('submit_gagal', 'terdeteksi');
 				redirect('Page/tambahcalonketuabemf');
 			}else{
-				$this->m_calonketuabemf->addCalonBemF($id, $nim, $nim2, $nama, $nama2, $departemen, $departemen2, $foto);
+				$this->m_calonketuabemf->addCalonBemF($id, $nim, $nim2, $nama, $nama2, $departemen, $departemen2, $foto, $visimisi);
 			}
 			
 			$this->session->set_flashdata('submit_berhasil', 'berhasil');
