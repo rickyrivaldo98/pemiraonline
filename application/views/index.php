@@ -36,11 +36,21 @@
           <p class="text-center text-md-left animate__animated animate__fadeInLeft animate__delay-2s"> <i>“Mari Menjadi Pemilih Yang Baik”</i> </p>
         </div>
       </div>
-      <div class="regis text-center">
-        <h3>Belum Registrasi?</h3>
-        <a type="button" class="btn btn-danger btn-lg btn-color" href="<?php echo base_url() . 'page/registrasi' ?>">REGISTRASI DISINI</a>
-        <h6>Jika Sudah, silahkan login</h6>
-      </div>
+      <?php if ($this->session->userdata('login') != true) : ?>
+        <div class="regis text-center">
+          <h3>Belum Registrasi?</h3>
+          <a type="button" class="btn btn-danger btn-lg btn-color" href="<?php echo base_url() . 'page/registrasi' ?>">REGISTRASI DISINI</a>
+          <h6>Jika Sudah, silahkan login</h6>
+        </div>
+      <?php elseif ($this->session->userdata('login') == true && $this->session->userdata('akses') != 'pemilih') :?>
+        <div class="regis text-center">
+          <a type="button" class="btn btn-danger btn-lg btn-color" href="<?php echo base_url() . 'page/dashboardAdmin' ?>">Dashboard</a>
+        </div>
+      <?php elseif ($this->session->userdata('login') == true && $this->session->userdata('akses') == 'pemilih') :?>
+        <div class="regis text-center">
+          <a type="button" class="btn btn-danger btn-lg btn-color" href="<?php echo base_url() . 'page/dashboardUser' ?>">Dashboard</a>
+        </div>
+      <?php endif; ?>
 
       <!-- </div> -->
     </div>

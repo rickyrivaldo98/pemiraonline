@@ -116,6 +116,16 @@
         </script>
     <?php endif; ?>
 
+    <?php if ($this->session->flashdata('gagal_email_sama')) : ?>
+        <script type="text/javascript">
+            Swal.fire({
+                icon: 'error',
+                title: 'Registrasi Gagal...',
+                text: 'Email sudah terdaftar, silahkan gunakan email yang berbeda!',
+            });
+        </script>
+    <?php endif; ?>
+
     <!-- Script auto fill ragistrasi -->
         
     <script type="text/javascript">

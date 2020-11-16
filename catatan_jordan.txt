@@ -1,0 +1,1 @@
+NOTE -> kalo mau mulai program, data di aturan_pemilihan disisahkan 1 row saja yang statusnya 0 

@@ -71,6 +71,11 @@ class Page extends CI_Controller
 			$password = $this->input->post('password', true);
 			$email = $this->input->post('email', true);
 
+			if ($this->m_registrasi->cekEmail($email, $tabel) != 0){
+				$this->session->set_flashdata('gagal_email_sama', 'gagal');
+	            redirect('Page/registrasi');
+			}
+
 			$lokasi = './ktm/';
 			$foto = $_FILES['foto'];
         	$nama_foto = $nim;
@@ -397,6 +402,7 @@ class Page extends CI_Controller
 	public function dashboardUser()
 	{
 		$this->load->model('m_pengaturanhasil');
+		$this->load->model('m_pengaturanpemilihan');
 		$cek_waktu = $this->m_pengaturanhasil->getWaktu();
 
 		if($cek_waktu->num_rows()!= 0){
@@ -405,6 +411,11 @@ class Page extends CI_Controller
 		}else{
 			$data['waktu'] = false;
 		}
+		
+		//untuk mengetahui apakah pemilihan sudah dibuka atau belum
+		$cek_status = $this->m_pengaturanpemilihan->getLastStatus();
+		$data['status'] = $cek_status['status'];
+
 		$this->load->view('dashboardUser', $data);
 	}
 
@@ -413,7 +424,36 @@ class Page extends CI_Controller
 		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
 			redirect('Page/index');
 		}
-		$this->load->view('admin/dashboardAdmin');
+
+		if ( function_exists( 'date_default_timezone_set' ) ){
+    		date_default_timezone_set('Asia/Jakarta');
+			$data['now'] = date("Y-m-d H:i:s");
+		}
+
+		$this->load->model('m_pengaturanhasil');
+		$this->load->model('m_pengaturanpemilihan');
+
+		//cek waktu pemilihan sedang berlangsung atau tidak
+
+		$cek_waktu = $this->m_pengaturanhasil->getWaktu();
+
+		if($cek_waktu->num_rows()!= 0){
+			$cek=$cek_waktu->row_array();
+			$data['waktu'] = $cek['aturan'];
+		}else{
+			$data['waktu'] = false;
+		}
+
+		if ($data['now'] > $data['waktu'] ){
+			$this->m_pengaturanpemilihan->addDataSelesai($data['now'], $this->session->userdata('nama'));
+		}
+
+		//cek status pemilihan saat ini
+
+		$cek_status = $this->m_pengaturanpemilihan->getLastStatus();
+		$data['status'] = $cek_status['status'];
+
+		$this->load->view('admin/dashboardAdmin', $data);
 	}
 
 	public function voting()
@@ -523,7 +563,7 @@ class Page extends CI_Controller
 
 
 		//untuk kirim email
-		$from = 'andyanjordan1153@gmail.com';
+		$from = 'panselsmu20@gmail.com';
 		$to = $this->input->get('email', true);
 		$subject = 'Verifikasi berkas Calon Pemilih Pemira FSM 2020';
 		$link_pemira = base_url() . "Page/login";
@@ -550,8 +590,8 @@ class Page extends CI_Controller
         $config['smtp_port'] = '465';
         $config['smtp_timeout'] = '60';
 
-        $config['smtp_user'] = 'andyanjordan1153@gmail.com';
-        $config['smtp_pass'] = '#';
+        $config['smtp_user'] = 'panselsmu20@gmail.com';
+        $config['smtp_pass'] = 'wmoogjtzrcpvcnvx';
 
         $config['charset'] = 'utf-8';
         $config['newline'] = "\r\n";
@@ -601,7 +641,7 @@ class Page extends CI_Controller
 
 
 		//untuk kirim email
-		$from = 'andyanjordan1153@gmail.com';
+		$from = 'panselsmu20@gmail.com';
 		$to = $this->input->get('email', true);
 		$subject = 'Verifikasi berkas Calon Pemilih Pemira FSM 2020';
 		$link_pemira = base_url() . "Page/registrasi";
@@ -628,8 +668,8 @@ class Page extends CI_Controller
         $config['smtp_port'] = '465';
         $config['smtp_timeout'] = '60';
 
-        $config['smtp_user'] = 'andyanjordan1153@gmail.com';
-        $config['smtp_pass'] = '#';
+        $config['smtp_user'] = 'panselsmu20@gmail.com';
+        $config['smtp_pass'] = 'wmoogjtzrcpvcnvx';
 
         $config['charset'] = 'utf-8';
         $config['newline'] = "\r\n";
@@ -877,6 +917,12 @@ class Page extends CI_Controller
 		}
 
 		$this->load->model('m_pengaturanhasil');
+		$this->load->model('m_pengaturanpemilihan');
+
+		//tambah data aturan pemilihan
+		$this->m_pengaturanpemilihan->addDataMulai($waktu, $this->session->userdata('nama'));
+
+		//tambah data aturan waktu
 		$time = $this->input->post('time');
 		$this->m_pengaturanhasil->addData($time, $this->session->userdata('nama'), $waktu);
 		$this->session->set_flashdata('berhasil', 'berhasil');
