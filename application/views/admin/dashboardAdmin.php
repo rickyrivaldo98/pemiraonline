@@ -116,7 +116,7 @@
                 confirmButtonText: 'Buka'
                 }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "<?php echo base_url();?>index.php/Page/ hasilvoteAdmin"; 
+                    window.location.href = "<?php echo base_url();?>Page/hasilvoteAdmin"; 
                 }
             })
         }

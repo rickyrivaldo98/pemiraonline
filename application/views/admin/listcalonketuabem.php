@@ -246,7 +246,7 @@
                 }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url:"<?php echo base_url();?>index.php/Page/hapus_data_calon",
+                        url:"<?php echo base_url();?>Page/hapus_data_calon",
                         method : "POST",
                         data: {id_kandidat: id_kandidat, foto: foto},
                         dataType : 'json',

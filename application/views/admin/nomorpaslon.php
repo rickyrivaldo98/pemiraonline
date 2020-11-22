@@ -89,7 +89,7 @@
                     id_arr.push('<?=$row['id_kandidat']?>')
                 <?php endforeach; ?>
                 $.ajax({
-                    url:"<?php echo base_url();?>index.php/Page/updatenomor",
+                    url:"<?php echo base_url();?>Page/updatenomor",
                     method : "POST",
                     data: {id_kandidat: id_arr, no_paslon: urut_arr},
                     dataType : 'json',

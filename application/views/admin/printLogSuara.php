@@ -20,48 +20,15 @@
 </head>
 
 <body>
-    <?php $this->load->view('template/navbar') ?>
-
     <div class="container dashboard">
         <br>
         <br>
-        <br>
-        <button type="button" class="btn btn-danger btn-lg" onclick="history.go(-1);">Kembali</button>
         <h1 class="text-center">Log Suara Terpakai</h1>
         <br>
-
         <h1 class="text-center" >PEMIRA Online Ketua BEM Fakultas Sains dan Matematika</h1>
-        
-        <h5>Total Suara Masuk :</h5>
-        <div style="border-color: 
-            <?php if($suara_terpakai >= 0 && $suara_terpakai <= 35){
-                echo '#DF290D';
-            }elseif ($suara_terpakai > 35 && $suara_terpakai <= 75){
-                echo '#F3770A';
-            }else{
-                echo '#2F971C';
-            }?>;border-style: solid;font-weight:bold; color: black;">
-            <div style="height:24px;width:<?=$suara_terpakai;?>%;border-color:
-                <?php if($suara_terpakai >= 0 && $suara_terpakai <= 35){
-                    echo '#DF290D';
-                }elseif ($suara_terpakai > 35 && $suara_terpakai <= 75){
-                    echo '#F3770A';
-                }else{
-                    echo '#2F971C';
-                }?>;border-style: solid; background-color:
-                <?php if($suara_terpakai >= 0 && $suara_terpakai <= 35){
-                    echo '#DF290D';
-                }elseif ($suara_terpakai > 35 && $suara_terpakai <= 75){
-                    echo '#F3770A';
-                }else{
-                    echo '#2F971C';
-                }?>"> <?= $suara_terpakai;?>%
-            </div>
-        </div>
         <br>
-        <a href="<?php echo base_url() . 'page/printLog' ?>" class="btn btn-success btn-lg float-right">Print Log Suara</a>
-        <br>
-        <br>
+        <h5>Total Suara Masuk : <?=$jumlah_pemilih?> </h5>
+        <h5>Total Mahasiswa Terdaftar : <?=$total?> </h5>
         <table style="width: 100%;" id="table-1" class="table table-bordered table-striped">
             <thead style="background-color: white;">
                 <tr>
@@ -111,9 +78,6 @@
     <br>
     <br>
     <br>
-
-
-    <?php $this->load->view('template/footer') ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -172,6 +136,9 @@
             });
         });
     </script>
+    <script>
+		window.print();
+	</script>
     
 </body>
 

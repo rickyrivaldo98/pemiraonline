@@ -170,7 +170,7 @@
                 });
             }else {
                 $.ajax({
-                    url:"<?php echo base_url();?>index.php/Page/get_data_nim",
+                    url:"<?php echo base_url();?>Page/get_data_nim",
                     method : "POST",
                     data: {nim: nim},
                     dataType : 'json',
@@ -232,7 +232,7 @@
                 });
             }else {
                 $.ajax({
-                    url:"<?php echo base_url();?>index.php/Page/get_data_nim",
+                    url:"<?php echo base_url();?>Page/get_data_nim",
                     method : "POST",
                     data: {nim: nim2},
                     dataType : 'json',

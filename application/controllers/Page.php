@@ -737,6 +737,16 @@ class Page extends CI_Controller
 		$this->load->view('admin/listcalonketuabem', $data);
 	}
 
+	public function listUser()
+	{
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_user');
+		$data['user'] = $this->m_user->getUser();
+		$this->load->view('admin/listuser', $data);
+	}
+
 	public function editFotoCalonBemf($id_kandidat)
 	{
 
@@ -895,6 +905,128 @@ class Page extends CI_Controller
 		
 	}
 
+	public function tambah_user() {
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('M_user');
+		$config = array(
+			array(
+				'field' => 'username',
+				'label' => 'username',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'Username Tidak Boleh Kosong',              
+				),
+			),
+			array(
+				'field' => 'name',
+				'label' => 'name',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'nama Tidak Boleh Kosong',
+				),
+			),
+			array(
+				'field' => 'password',
+				'label' => 'password',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'password Tidak Boleh Kosong',
+				),
+			),
+			array(
+				'field' => 'role',
+				'label' => 'role',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'Role Tidak Boleh Kosong',
+				),
+			),
+		);
+		$this->form_validation->set_rules($config);
+		if( $this->form_validation->run() == FALSE){
+			$this->load->view('admin/listUser');
+		} else {
+			$name = $this->input->post('name', true);
+			$username = $this->input->post('username', true);
+			$password = $this->input->post('password', true);
+			$role = $this->input->post('role', true);
+
+			$this->M_user->addUser($username, $name, $password, $role);
+			$this->session->set_flashdata('submit_berhasil', 'berhasil');
+			redirect('Page/listUser');
+		}
+	}
+
+	public function editUser($id) {
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		
+		$this->load->model('m_user');
+		$config = array(
+			array(
+				'field' => 'username',
+				'label' => 'username',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'Username Tidak Boleh Kosong',              
+				),
+			),
+			array(
+				'field' => 'name',
+				'label' => 'name',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'nama Tidak Boleh Kosong',
+				),
+			),
+			array(
+				'field' => 'password',
+				'label' => 'password',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'password Tidak Boleh Kosong',
+				),
+			),
+			array(
+				'field' => 'role',
+				'label' => 'role',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'Role Tidak Boleh Kosong',
+				),
+			),
+		);
+		$this->form_validation->set_rules($config);
+		if( $this->form_validation->run() == FALSE){
+			$this->load->view('admin/listUser');
+		} else {
+			$name = $this->input->post('name', true);
+			$username = $this->input->post('username', true);
+			$password = $this->input->post('password', true);
+			$role = $this->input->post('role', true);
+
+			$this->m_user->updateUser($id, $username, $name, $password, $role);
+			$this->session->set_flashdata('edit_berhasil','berhasil');
+			redirect('Page/listUser');
+		}
+	}
+
+	public function hapusUser(){
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+
+		$this->load->model('m_user');
+		$id = $this->input->post('id');
+		$this->m_user->deleteUser($id);
+		$data = true;
+		$this->session->set_flashdata('hapus_berhasil','berhasil');
+		echo json_encode($data);
+	}
+
 	public function tambah_pemilih()
 	{
 		$this->load->model('m_departemen');
@@ -1007,7 +1139,7 @@ class Page extends CI_Controller
 		$data['log'] = $this->m_logsuara->getLog();
 
 		//total suara masuk
-		$jumlah_suara = $this->m_logsuara->countLog();
+		$jumlah_suara = $this->m_logsuara->countLog()['jumlah'];
 
 		//total suara pemilih
 		$suara_Biologi = $this->m_logsuara->countBiologi();
@@ -1032,6 +1164,28 @@ class Page extends CI_Controller
 		$data['suara_terpakai']= number_format($data['suara_terpakai'],4);
 		$this->load->view('admin/logsuara', $data);
 
+	}
+
+	public function printLog() {
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_logsuara');
+		$data['log'] = $this->m_logsuara->getLog();
+
+		//total suara masuk
+		$data['jumlah_pemilih'] = (integer)$this->m_logsuara->countLog()['jumlah'];
+
+		//total suara pemilih
+		$suara_Biologi = (integer)$this->m_logsuara->countBiologi()['jumlah'];
+		$suara_Bioteknologi = (integer)$this->m_logsuara->countBioteknologi()['jumlah'];
+		$suara_Kimia = (integer)$this->m_logsuara->countKimia()['jumlah'];
+		$suara_Fisika = (integer)$this->m_logsuara->countFisika()['jumlah'];
+		$suara_Statistika = (integer)$this->m_logsuara->countStatistika()['jumlah'];
+		$suara_Matematika = (integer)$this->m_logsuara->countMatematika()['jumlah'];
+		$suara_Informatika = (integer)$this->m_logsuara->countInformatika()['jumlah'];
+		$data['total'] = $suara_Biologi+$suara_Bioteknologi+$suara_Fisika+$suara_Kimia+$suara_Matematika+$suara_Statistika+$suara_Informatika;
+		$this->load->view('admin/printLogSuara', $data);
 	}
 
 	public function getHasilVote() {

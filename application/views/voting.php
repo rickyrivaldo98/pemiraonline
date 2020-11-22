@@ -122,14 +122,14 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "<?php echo base_url(); ?>index.php/Page/pilih_calon",
+                            url: "<?php echo base_url(); ?>Page/pilih_calon",
                             method: "POST",
                             data: {
                                 id_kandidat: id_kandidat
                             },
                             dataType: 'json',
                             success: function(data) {
-                                location.replace("<?php echo base_url(); ?>index.php/Page/dashboardUser");
+                                location.replace("<?php echo base_url(); ?>Page/dashboardUser");
                             }
                         });
                     }
