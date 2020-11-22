@@ -17,9 +17,9 @@
 </head>
 
 <body>
-    <?php $this->load->view('template/navbar') ?>
-
-    <div class="container login">
+    
+<?php $this->load->view('template/navbar') ?>
+    <div class="container login" style="vertical-align: middle; text-align: center;">
         <br>
         <br>
         <br>
