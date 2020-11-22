@@ -22,9 +22,9 @@
                     <li class="nav-item">
                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link" href ="#"> <b>Selamat Datang <?= ($this->session->userdata('nama')) ?></b></a>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right" style="right: 300px;">
-                            <!-- <a href="<?php echo base_url() . 'C_GantiPassword' ?>">
-                                <button type="button" tabindex="0" class="dropdown-item">Ganti Password</button>
-                            </a> -->
+                            <a href="<?php echo base_url() . 'Page/tambah_pemilih' ?>">
+                                <button type="button" tabindex="0" class="dropdown-item">Tambah Pemilih</button>
+                            </a>
                             <div tabindex="-1" class="dropdown-divider"></div>
                                 <a href="#" data-toggle="modal" data-target="#logoutModal">
                                     <button type="button" tabindex="0" class="dropdown-item" color="red">Logout</button>

@@ -133,6 +133,16 @@
         </script>
     <?php endif; ?>
 
+    <?php if ($this->session->flashdata('tambah_berhasil')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: 'Data Calon Pemilih Berhasil Ditambahkan !'
+            });
+        </script>
+    <?php endif; ?>
+
     <!-- END Script buka pemilihan -->
 </body>
 

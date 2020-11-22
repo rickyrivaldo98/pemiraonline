@@ -554,6 +554,25 @@ class Page extends CI_Controller
 		$this->load->view('admin/verifikasi', $data);
 	}
 
+	public function pemilih_tetap()
+	{	
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
+		$this->load->model('m_verifikasi');
+		$biologi = $this->m_verifikasi->getBiologi1();
+		$bioteknologi = $this->m_verifikasi->getBioteknologi1();
+		$kimia = $this->m_verifikasi->getKimia1();
+		$fisika = $this->m_verifikasi->getFisika1();
+		$informatika = $this->m_verifikasi->getInformatika1();
+		$statistika = $this->m_verifikasi->getStatistika1();
+		$matematika = $this->m_verifikasi->getMatematika1();
+		$data['pemilih'] = array_merge($biologi, $bioteknologi, $kimia, $fisika, $informatika, $statistika, $matematika);
+		$data['total'] =count($data['pemilih']);
+
+		$this->load->view('admin/datapemilihtetap', $data);
+	}
+
 	public function verifikasi_email(){
 		$this->load->model('m_verifikasi');
 		$nim = $this->input->get('nim');
@@ -875,6 +894,56 @@ class Page extends CI_Controller
 		}
 		
 	}
+
+	public function tambah_pemilih()
+	{
+		$this->load->model('m_departemen');
+		$this->load->model('m_pemilih');
+		$data['departemen']= $this->m_departemen->getDepartemen();
+		
+
+		$config = array(
+			array(
+				'field' => 'nim',
+				'label' => 'Nim',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'NIM Tidak Boleh Kosong',              
+				),
+			),
+			array(
+				'field' => 'nama',
+				'label' => 'Nama',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'Nama Tidak Boleh Kosong',
+				),
+			),
+			array(
+				'field' => 'departemen',
+				'label' => 'Departemen',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'Departemen Tidak Boleh Kosong',
+				),
+			),
+   
+		);
+		$this->form_validation->set_rules($config);
+		if( $this->form_validation->run() == FALSE){
+			$this->load->view('admin/tambahpemilih', $data);
+		}else{
+			$nim = $this->input->post('nim', true);
+			$nama = $this->input->post('nama', true);
+			$departemen = $this->input->post('departemen', true);
+			$fakultas = $this->input->post('fakultas', true);
+			$this->m_pemilih->tambahDataPemilih($nim, $nama, $departemen, $fakultas);
+			$this->session->set_flashdata('tambah_berhasil', 'berhasil');
+			redirect('Page/dashboardAdmin');
+
+		}
+	}
+
 
 	public function editcalonketuabemundip()
 	{
