@@ -56,6 +56,13 @@
                     <img class="gambar_dashboard mx-auto d-block" src="<?php echo base_url() . 'assets/img/6.png' ?>" alt="">
                     <h1>Lihat Hasil</h1>
                 </a>
+                <?php if($status == 0) :?>
+                    <a href="#" class="btn btn-danger btn-lg mb-5 mb-md-0" onclick="bukaPemilihan()">Pemilihan Belum Dibuka</a>
+                <?php elseif($status == 1 && ($now < $waktu)) : ?>
+                    <button class="btn btn-info btn-lg mb-5 mb-md-0" disabled>Pemilihan Sedang Berlangsung</button>
+                <?php elseif($status == 2) : ?>
+                    <button class="btn btn-success btn-lg mb-5 mb-md-0" disabled>Pemilihan Telah Berakhir</buttona>
+                <?php endif; ?>
             </div>
         </div>
     <br>
@@ -94,6 +101,49 @@
             )
         </script>
     <?php endif; ?>
+
+    <!-- Script buka pemilihan -->
+    <script>
+        function bukaPemilihan(){
+            //console.log(id_kandidat);
+            Swal.fire({
+                title: 'Perhatian!',
+                text: "Silahkan Atur Waktu Pemilihan Untuk Membuka Pemilihan Raya FSM UNDIP 2020 sekarang",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Buka'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "<?php echo base_url();?>index.php/Page/ hasilvoteAdmin"; 
+                }
+            })
+        }
+    </script>
+
+    <?php if ($this->session->flashdata('dibuka')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Pemira FSM UNDIP 2020 Telah DIbuka!',
+                footer: 'atur waktu penutupan <a href="#">sekarang</a>'
+            });
+        </script>
+    <?php endif; ?>
+
+    <?php if ($this->session->flashdata('tambah_berhasil')) : ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: 'Data Calon Pemilih Berhasil Ditambahkan !'
+            });
+        </script>
+    <?php endif; ?>
+
+    <!-- END Script buka pemilihan -->
 </body>
 
 </html>

@@ -34,7 +34,20 @@ class M_registrasi extends CI_Model
 	function updateDataStatistika($nim, $password, $email, $foto)
 	{
 		$this->db->query("UPDATE statistika SET password = '$password', registrasi = 1, email = '$email', foto_ktm = '$foto' WHERE nim = '$nim'");
-    }
+	}
+	
+	function cekEmail($email)
+	{
+		$data = $this->db->query("SELECT * FROM kimia WHERE email = '$email' LIMIT 1 ")->num_rows();
+		$data = $data + $this->db->query("SELECT * FROM fisika WHERE email = '$email' LIMIT 1 ")->num_rows();
+		$data = $data + $this->db->query("SELECT * FROM biologi WHERE email = '$email' LIMIT 1 ")->num_rows();
+		$data = $data + $this->db->query("SELECT * FROM bioteknologi WHERE email = '$email' LIMIT 1 ")->num_rows();
+		$data = $data + $this->db->query("SELECT * FROM matematika WHERE email = '$email' LIMIT 1 ")->num_rows();
+		$data = $data + $this->db->query("SELECT * FROM statistika WHERE email = '$email' LIMIT 1 ")->num_rows();
+		$data = $data + $this->db->query("SELECT * FROM informatika WHERE email = '$email' LIMIT 1 ")->num_rows();
+		return $data;
+		
+	}
     
 
 }

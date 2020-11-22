@@ -1,10 +1,10 @@
 <?php
 class M_calonketuabemf extends CI_Model
 {
-	function addCalonBemF($id, $nim, $nim2, $nama, $nama2, $departemen, $departemen2, $foto)
+	function addCalonBemF($id, $nim, $nim2, $nama, $nama2, $departemen, $departemen2, $foto, $visimisi)
 	{
-		$this->db->query("INSERT INTO kandidat_bemf (id_kandidat, nim_ketua, nama_ketua, departemen_ketua, nim_wakil, nama_wakil, departemen_wakil, suara, foto, no_paslon)
-        VALUES ('$id', '$nim', '$nama', '$departemen', '$nim2', '$nama2', '$departemen2', 0, '$foto', 0)");
+		$this->db->query("INSERT INTO kandidat_bemf (id_kandidat, nim_ketua, nama_ketua, departemen_ketua, nim_wakil, nama_wakil, departemen_wakil, suara, foto, no_paslon, visimisi)
+        VALUES ('$id', '$nim', '$nama', '$departemen', '$nim2', '$nama2', '$departemen2', 0, '$foto', 0, '$visimisi')");
     }
     
     function getCalonBemF($nim, $nim2)
@@ -36,6 +36,11 @@ class M_calonketuabemf extends CI_Model
 	function updateFotoCalon($id_kandidat, $foto)
 	{
 		$this->db->query("UPDATE kandidat_bemf SET foto = '$foto' WHERE id_kandidat = '$id_kandidat'");
+	}
+
+	function updateVisiMisi($id_kandidat, $visimisi)
+	{
+		$this->db->query("UPDATE kandidat_bemf SET visimisi = '$visimisi' WHERE id_kandidat = '$id_kandidat'");
 	}
 
 	function hapusDataCalon($id_kandidat)

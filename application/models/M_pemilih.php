@@ -78,4 +78,9 @@ class M_pemilih extends CI_Model
 		$this->db->query("UPDATE bioteknologi SET status = 1 WHERE nim = '$nim'");
 	}
 
+	function tambahDataPemilih($nim, $nama, $departemen, $fakultas)
+	{
+		$this->db->query("INSERT INTO $departemen(nim, nama, departemen, fakultas) VALUES('$nim', '$nama', '$departemen', '$fakultas')");
+	}
+
 }
