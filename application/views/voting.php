@@ -43,6 +43,11 @@
                             <h5>Ketua : <?= $row['nama_ketua']; ?></h5>
                             <h5>Wakil Ketua : <?= $row['nama_wakil']; ?></h5>
                         </div>
+                        <br>
+                        <div class="font-weight-bold border  rounded">Visi dan Misi</div>
+                        <br>
+                        <span class="text-left"><?= $row['visimisi']; ?></span>
+                        <br>
                     </label>
             <?php
                     $i++;
@@ -117,14 +122,14 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "<?php echo base_url(); ?>index.php/Page/pilih_calon",
+                            url: "<?php echo base_url(); ?>Page/pilih_calon",
                             method: "POST",
                             data: {
                                 id_kandidat: id_kandidat
                             },
                             dataType: 'json',
                             success: function(data) {
-                                location.replace("<?php echo base_url(); ?>index.php/Page/dashboardUser");
+                                location.replace("<?php echo base_url(); ?>Page/dashboardUser");
                             }
                         });
                     }

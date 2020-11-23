@@ -36,8 +36,10 @@
                         date_default_timezone_set('Asia/Jakarta');
                         $now = date("Y-m-d H:i:s");
                     }
-                    if($waktu < $now) :
                 ?>
+                <?php if($status == 0): ?>
+                    <a href="#" onclick="belumDibuka()">
+                <?php elseif($waktu < $now): ?>
                     <a href="#" onclick="waktuHabis()">
                 <?php else : ?>
                     <?php if ($this->session->userdata('hak_pilih') == 0) : ?>
@@ -97,6 +99,14 @@
                 text: 'Pemilihan hanya dapat dilakukan di waktu yang telah ditentukan!'
             });
         } 
+
+        function belumDibuka(){
+            Swal.fire({
+                icon: 'error',
+                title: 'Pemilihan Belum Dibuka',
+                text: 'Pemilihan hanya dapat dilakukan di waktu yang telah ditentukan!'
+            });
+        }
     </script>
 </body>
 

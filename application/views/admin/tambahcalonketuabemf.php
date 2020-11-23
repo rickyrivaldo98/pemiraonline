@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/fontawesome/css/all.min.css' ?>">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/aos/aos.css' ?>">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/animate.css/animate.min.css' ?>">
+    <script src="https://cdn.tiny.cloud/1/l5ya0mb0dsp3tg59gn44unx60vt7q0dwfe5bq0t7u66ojw6d/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Tambah Calon Ketua Bem</title>
 </head>
 
@@ -82,6 +83,11 @@
                 <small class="form-text text-muted">File foto yang diupload harus sesuai dengan fomat JPG / JPEG / PNG max 2mb</small>
             </div>
 
+            <div class="form-group">
+                <label for="visimisi">Visi dan Misi</label>
+                <textarea id="visimisi" name="visimisi"></textarea>
+            </div>
+
             <br><br>
             <div class="text-center ayo-pilih">
                 <button type="submit" id="submit" class="btn btn-primary btn-lg" disabled>Submit</button>
@@ -133,6 +139,14 @@
      <!-- Script auto fill ketua -->
         
      <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea',
+            menubar: false,
+            plugins: "link code lists",
+            toolbar: "undo redo | styleselect | forecolor | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent | link | code",
+
+            toolbar_mode: 'floating',
+        });
         function autofill_ketua(){
             var nim =document.getElementById('nim').value;
             var nim2 = document.getElementById('nim2').value;
@@ -156,7 +170,7 @@
                 });
             }else {
                 $.ajax({
-                    url:"<?php echo base_url();?>index.php/Page/get_data_nim",
+                    url:"<?php echo base_url();?>Page/get_data_nim",
                     method : "POST",
                     data: {nim: nim},
                     dataType : 'json',
@@ -218,7 +232,7 @@
                 });
             }else {
                 $.ajax({
-                    url:"<?php echo base_url();?>index.php/Page/get_data_nim",
+                    url:"<?php echo base_url();?>Page/get_data_nim",
                     method : "POST",
                     data: {nim: nim2},
                     dataType : 'json',

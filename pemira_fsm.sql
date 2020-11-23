@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2020 at 07:25 PM
+-- Generation Time: Nov 22, 2020 at 11:43 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -764,7 +764,7 @@ CREATE TABLE `bioteknologi` (
 --
 
 INSERT INTO `bioteknologi` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `status`, `password`, `registrasi`, `foto_ktm`) VALUES
-('24020218140001', 'FAIZ RAIHAN AKBAR ', '', 'Bioteknologi', 'Sains dan Matematika', 0, '', 1, ''),
+('24020218140001', 'FAIZ RAIHAN AKBAR ', '', 'Bioteknologi', 'Sains dan Matematika', 0, '', 0, ''),
 ('24020218140002', 'ANGGITA NURUL MAULIDA ', '', 'Bioteknologi', 'Sains dan Matematika', 0, '', 0, ''),
 ('24020218140003', 'VICKY PREVIA SYAFIRA ', '', 'Bioteknologi', 'Sains dan Matematika', 0, '', 0, ''),
 ('24020218140004', 'HENNI SETYANINGSIH  ', '', 'Bioteknologi', 'Sains dan Matematika', 0, '', 0, ''),
@@ -1059,7 +1059,7 @@ INSERT INTO `fisika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `status`
 ('24040116140109', 'ULIL ALBAB ALHAKIM', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040117120001', 'AINUN NURUSY SYAHIDA', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040117120003', 'NURLAILA PUTRI ANGGRAENI', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
-('24040117120004', 'VENDI', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
+('24040117120004', 'VENDI', 'andyanjordan1153@gmail.com', 'Fisika', 'Sains dan Matematika', 0, '123123', 2, '24040117120004.jpg'),
 ('24040117120005', 'PRISKA ALTA REFINA TAMPAI', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040117120006', 'NAILY MAWADDAH', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040117120008', 'TRI ISTANTI', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -1484,9 +1484,9 @@ INSERT INTO `fisika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `status`
 ('24040120130059', 'RIZKY FATKHURRIZAL', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040120130060', 'AMELIA KUSUMA WARDANI', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040120130061', 'NUR FATHIA KHAIRUNNISA', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
-('24040120130063', 'HIBATUL MUTAFATIKHA', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
-('24040120130064', 'ANGELITA SHINTA', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, '');
+('24040120130063', 'HIBATUL MUTAFATIKHA', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, '');
 INSERT INTO `fisika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `status`, `password`, `registrasi`, `foto_ktm`) VALUES
+('24040120130064', 'ANGELITA SHINTA', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040120130065', 'ARISTO BIMA', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040120130067', 'ROWAN DEVIN NATHANAEL EFENDI', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24040120130068', 'ALIEF PURNOMO AJI', '', 'Fisika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -1928,11 +1928,11 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 ('24010316140121', 'SHINTA KRISDINA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117110015', 'DONI GHAZI MALADZY', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117110024', 'FARID RACHMAN HALIM ', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117120001', 'JOHANADI SANTOSO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117120002', 'ANTON', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117120004', 'FAUZAN IDAL FITHRI EL ARDHI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117120005', 'FARHAN NUGRAHA PRATAMA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117120006', 'INNAKA HAYYU ARAFI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
+('24060117120001', 'JOHANADI SANTOSO', '123', 'Informatika', 'Sains dan Matematika', 1, '123', 2, '24060117120001.jpg'),
+('24060117120002', 'ANTON', '1234', 'Informatika', 'Sains dan Matematika', 1, '123', 2, '24060117120002.jpg'),
+('24060117120004', 'FAUZAN IDAL FITHRI EL ARDHI', '12311', 'Informatika', 'Sains dan Matematika', 1, '123', 2, '24060117120004.jpg'),
+('24060117120005', 'FARHAN NUGRAHA PRATAMA', '12313123', 'Informatika', 'Sains dan Matematika', 1, '123', 2, '24060117120005.jpg'),
+('24060117120006', 'INNAKA HAYYU ARAFI', '12312312321', 'Informatika', 'Sains dan Matematika', 1, '123', 2, '24060117120006.jpg'),
 ('24060117120008', 'ZHARFAN AKBAR ANDRIAWAN', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117120009', 'SISCA AYU FEBRIANTI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117120010', 'HANIF RAMADHANI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -1968,7 +1968,7 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 ('24060117120044', 'WAHYU ADI KUSUMA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117120045', 'OBED REINHARD SIREGAR', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117120046', 'NI\'MAH KHOIRIYAH AYYIYAH', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'navi270499@gmail.com', 'Informatika', 'Sains dan Matematika', 0, '123', 2, '24060117130048.jpg'),
+('24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'navi270499@gmail.com', 'Informatika', 'Sains dan Matematika', 1, '123', 2, '24060117130048.jpg'),
 ('24060117130049', 'PRASETYO ADI SASONGKO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130050', 'SATRIA KEMAL PRAWIRA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130051', 'ANGGA DHARMA ISWARA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -1984,11 +1984,11 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 ('24060117130062', 'IFFA ZAINAN NISA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130063', 'SYAHRIR ALIFFUDDIN MUHARRAM', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130064', 'SICHUAN MULIA CIPTA LANG', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117130065', 'MUHAMMAD RIZKI AZMAL SIREGAR', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
+('24060117130065', 'MUHAMMAD RIZKI AZMAL SIREGAR', 'panselsmu20@gmail.com', 'Informatika', 'Sains dan Matematika', 0, '123123', 2, '24060117130065.jpg'),
 ('24060117130066', 'ANNISA FADHILAH', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130067', 'AGNI WIGUNA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060117130069', 'M. HAIKAL RAHMADI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
+('24060117130069', 'M. HAIKAL RAHMADI', 'dagammav@gmail.com', 'Informatika', 'Sains dan Matematika', 0, 'asd123', 2, '24060117130069.jpg'),
 ('24060117130070', 'FAISAL BAYU WASKITO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130071', 'BENALDY YUGA ADHAITYAR', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060117130072', 'ENDAR DANANG SUPRAYOGO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -2124,10 +2124,10 @@ INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `st
 ('24060118120057', 'DIANA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118120095', 'RANU DWI SETIADI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130065', 'AKHMAD FADLIL KHAKIM', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060118130066', 'MILLENIO RACHMAT PRAYOGO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060118130067', 'ANDIEN DWI NOVIKA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
-('24060118130068', 'AKBAR FALIH HUSODO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, '');
+('24060118130066', 'MILLENIO RACHMAT PRAYOGO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, '');
 INSERT INTO `informatika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `status`, `password`, `registrasi`, `foto_ktm`) VALUES
+('24060118130067', 'ANDIEN DWI NOVIKA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
+('24060118130068', 'AKBAR FALIH HUSODO', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130069', 'ERWIN FARISKAYANA RIZQI', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130070', 'RIZKI CAHYA PRADANA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24060118130071', 'MUHAMMAD DIMAS ANDHIKA', '', 'Informatika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -2511,6 +2511,7 @@ CREATE TABLE `kandidat_bemf` (
   `departemen_wakil` varchar(20) NOT NULL,
   `suara` int(11) NOT NULL,
   `foto` varchar(255) NOT NULL,
+  `visimisi` longtext DEFAULT NULL,
   `no_paslon` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -2518,10 +2519,10 @@ CREATE TABLE `kandidat_bemf` (
 -- Dumping data for table `kandidat_bemf`
 --
 
-INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`, `no_paslon`) VALUES
-('6011713004860117130049', '24060117130048', 'ANANDA PRABU TRITYA VIJAYA', 'Informatika', '24060117130049', 'PRASETYO ADI SASONGKO', 'Informatika', 0, 'paslon_24060117130048_24060117130049.jpg', 2),
-('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 6, 'paslon_24060117130078_24060117130068.jpg', 1),
-('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg', 3);
+INSERT INTO `kandidat_bemf` (`id_kandidat`, `nim_ketua`, `nama_ketua`, `departemen_ketua`, `nim_wakil`, `nama_wakil`, `departemen_wakil`, `suara`, `foto`, `visimisi`, `no_paslon`) VALUES
+('6011713005060117120030', '24060117130050', 'SATRIA KEMAL PRAWIRA', 'Informatika', '24060117120030', 'ASYRAF HUMAM ARRAFIFIN', 'Informatika', 5, 'paslon_24060117130050_24060117120030.jpg', '<p style=\"text-align: center;\"><strong>Visi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Hehe</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>\r\n<p><strong>Misi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>', 1),
+('6011713007860117130068', '24060117130078', 'JULIO ANDYAN JORDAN ARYANTO', 'Informatika', '24060117130068', 'MUHAMMAD FIKHAYYIN NAFI`', 'Informatika', 8, 'paslon_24060117130078_24060117130068.jpg', '<p><strong>Visi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Heheaaaa</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>\r\n<p><strong>Misi</strong></p>\r\n<ol>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n<li>Ngidol</li>\r\n</ol>', 2),
+('6011714006760117130080', '24060117140067', 'MUHAMMAD RIZKY ARDANI', 'Informatika', '24060117130080', 'MUHAMMAD FAISHAL FARRAS', 'Informatika', 0, 'paslon_24060117140067_24060117130080.jpg', '<h1 style=\"text-align: center;\">Visi</h1>\r\n<ol>\r\n<li>test</li>\r\n</ol>', 4);
 
 -- --------------------------------------------------------
 
@@ -3246,7 +3247,16 @@ INSERT INTO `log_suara` (`no`, `waktu`, `nim`, `departemen`, `kandidat`) VALUES
 (3, '2020-11-02 12:44:28', '24020113120063', 'Biologi', '6011713007860117130068'),
 (4, '2020-11-02 12:45:30', '24020113120063', 'Biologi', '6011713007860117130068'),
 (5, '2020-11-02 12:49:51', '24060117130078', 'Informatika', '6011713007860117130068'),
-(6, '2020-11-02 12:51:25', '24060117140054', 'Informatika', '6011713007860117130068');
+(6, '2020-11-02 12:51:25', '24060117140054', 'Informatika', '6011713007860117130068'),
+(7, '2020-11-03 21:33:36', '24060117130078', 'Informatika', '6011713004860117130049'),
+(8, '2020-11-22 14:47:53', '24060117120001', 'Informatika', '6011713005060117120030'),
+(9, '2020-11-22 14:48:09', '24060117120002', 'Informatika', '6011713005060117120030'),
+(10, '2020-11-22 14:48:21', '24060117120004', 'Informatika', '6011713005060117120030'),
+(11, '2020-11-22 14:48:33', '24060117120005', 'Informatika', '6011713007860117130068'),
+(12, '2020-11-22 14:48:50', '24060117120006', 'Informatika', '6011713004860117130049'),
+(13, '2020-11-22 15:43:01', '24060117130048', 'Informatika', '6011713005060117120030'),
+(14, '2020-11-22 17:40:47', '24060117130048', 'Informatika', '6011713007860117130068'),
+(15, '2020-11-22 17:41:28', '24060117130048', 'Informatika', '6011713005060117120030');
 
 -- --------------------------------------------------------
 
@@ -3451,7 +3461,7 @@ INSERT INTO `matematika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `sta
 ('24010117140019', 'FEBY MARA PANDEBU', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24010117140020', 'ANDI SAPUTRA', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24010117140021', 'PUTU ANDIKA BRAMASTHA', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
-('24010117140022', 'IMMANUEL DENNIS KARYONO', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
+('24010117140022', 'IMMANUEL DENNIS KARYONO', 'dagammav@gmail.com', 'Matematika', 'Sains dan Matematika', 0, '11111', 0, '24010117140022.jpg'),
 ('24010117140023', 'GIFARY RAMADHAN', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24010117140024', 'NIKI APRILLY PUTRI', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
 ('24010117140025', 'ANANDA SHAFIRA ALTHAF', '', 'Matematika', 'Sains dan Matematika', 0, '', 0, ''),
@@ -3911,7 +3921,66 @@ INSERT INTO `pengaturan_hasil` (`nama_admin`, `waktu`, `aturan`) VALUES
 ('Jordan', '2020-11-02 21:29:50', '2020-11-12 21:29:00'),
 ('Jordan', '2020-11-02 21:30:57', '2020-11-02 21:34:00'),
 ('Jordan', '2020-11-02 21:31:26', '2020-11-02 21:31:00'),
-('Jordan', '2020-11-02 21:35:31', '2020-11-20 21:35:00');
+('Jordan', '2020-11-02 21:35:31', '2020-11-20 21:35:00'),
+('Jordan', '2020-11-03 21:34:25', '2020-11-03 21:35:00'),
+('Jordan', '2020-11-05 19:45:46', '2020-11-05 19:47:00'),
+('Jordan', '2020-11-13 13:53:59', '2020-11-13 13:55:00'),
+('Jordan', '2020-11-13 14:16:05', '2020-11-13 14:17:00'),
+('Jordan', '2020-11-22 14:44:43', '2020-11-30 20:50:00'),
+('Jordan', '2020-11-22 15:47:03', '2020-11-08 15:46:00'),
+('Jordan', '2020-11-22 17:40:16', '2020-11-27 17:40:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengaturan_pemilihan`
+--
+
+CREATE TABLE `pengaturan_pemilihan` (
+  `nama_admin` varchar(255) NOT NULL,
+  `waktu` datetime NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0 COMMENT '0=belum dibuka 1= sedang berlangsung, 2 = sudah ditutup'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengaturan_pemilihan`
+--
+
+INSERT INTO `pengaturan_pemilihan` (`nama_admin`, `waktu`, `status`) VALUES
+('', '2020-11-05 13:59:11', 0),
+('Jordan', '2020-11-13 14:22:49', 2),
+('Jordan', '2020-11-13 14:23:46', 2),
+('Jordan', '2020-11-22 14:04:39', 2),
+('Jordan', '2020-11-22 14:06:23', 2),
+('Jordan', '2020-11-22 14:22:10', 2),
+('Jordan', '2020-11-22 14:23:47', 2),
+('Jordan', '2020-11-22 14:26:16', 2),
+('Jordan', '2020-11-22 14:26:20', 2),
+('Jordan', '2020-11-22 14:26:22', 2),
+('Jordan', '2020-11-22 14:26:37', 2),
+('Jordan', '2020-11-22 14:26:39', 2),
+('Jordan', '2020-11-22 14:44:28', 2),
+('Jordan', '2020-11-22 14:44:43', 1),
+('Jordan', '2020-11-22 15:47:03', 1),
+('Jordan', '2020-11-22 15:47:55', 2),
+('Jordan', '2020-11-22 15:52:19', 2),
+('Jordan', '2020-11-22 15:52:21', 2),
+('Jordan', '2020-11-22 15:59:54', 2),
+('Jordan', '2020-11-22 16:42:31', 2),
+('Jordan', '2020-11-22 17:29:58', 2),
+('Jordan', '2020-11-22 17:30:02', 2),
+('Jordan', '2020-11-22 17:33:46', 2),
+('Jordan', '2020-11-22 17:33:51', 2),
+('Jordan', '2020-11-22 17:34:07', 0),
+('Jordan', '2020-11-22 17:34:51', 2),
+('Jordan', '2020-11-22 17:34:59', 2),
+('Jordan', '2020-11-22 17:36:17', 2),
+('Jordan', '2020-11-22 17:36:39', 2),
+('Jordan', '2020-11-22 17:36:41', 2),
+('Jordan', '2020-11-22 17:37:01', 2),
+('Jordan', '2020-11-22 17:40:06', 2),
+('Jordan', '2020-11-22 17:40:10', 2),
+('Jordan', '2020-11-22 17:40:16', 1);
 
 -- --------------------------------------------------------
 
@@ -4594,6 +4663,7 @@ INSERT INTO `statistika` (`nim`, `nama`, `email`, `departemen`, `fakultas`, `sta
 --
 
 CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -4604,8 +4674,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `nama`, `password`, `role`) VALUES
-('admin0', 'Jordan', 'asd123', 1);
+INSERT INTO `user` (`id`, `username`, `nama`, `password`, `role`) VALUES
+(1, 'admin0', 'Jordan', 'asd123', 1),
+(2, 'anandavjjj', 'ananda', '123', 1);
 
 --
 -- Indexes for dumped tables
@@ -4672,6 +4743,12 @@ ALTER TABLE `pengaturan_hasil`
   ADD PRIMARY KEY (`waktu`);
 
 --
+-- Indexes for table `pengaturan_pemilihan`
+--
+ALTER TABLE `pengaturan_pemilihan`
+  ADD PRIMARY KEY (`waktu`);
+
+--
 -- Indexes for table `statistika`
 --
 ALTER TABLE `statistika`
@@ -4681,7 +4758,7 @@ ALTER TABLE `statistika`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -4691,7 +4768,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `log_suara`
 --
 ALTER TABLE `log_suara`
-  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

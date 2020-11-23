@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/fontawesome/css/all.min.css' ?>">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/aos/aos.css' ?>">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/modules/animate.css/animate.min.css' ?>">
+    <script src="https://cdn.tiny.cloud/1/l5ya0mb0dsp3tg59gn44unx60vt7q0dwfe5bq0t7u66ojw6d/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <title>Pemira Online</title>
 </head>
@@ -76,6 +77,12 @@
                                 <i class="fas fa-info-circle"></i>
                                 </span>
                                 <span class="text">Lihat Foto</span>
+                            </a> &nbsp;
+                            <a href="" class="btn btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#modalEditVisiMisi_<?= $row['id_kandidat']; ?>">
+                                <span class="icon text-white-50">
+                                <i class="fas fa-info-circle"></i>
+                                </span>
+                                <span class="text">Edit Visi Misi</span>
                             </a> &nbsp;
                             
                             <a href="#" class="btn btn-danger btn-danger-split btn-sm" onclick="alert_hapus('<?=$row['id_kandidat'];?>', '<?=$row['foto'];?>' )">
@@ -213,6 +220,16 @@
     <?php endif; ?>
     <!-- END Script alert edit foto -->
 
+    <!-- Script alert edit visi misi -->
+    <?php if ($this->session->flashdata('edit_visimisi_berhasil')) : ?>
+        <script>
+            Swal.fire(
+                'Selamat',
+                'Edit visi misi calon berhasil! ',
+                'success'
+            )
+        </script>
+    <?php endif; ?>
 
     <!-- Script untuk hapus -->
     <script>
@@ -229,7 +246,7 @@
                 }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url:"<?php echo base_url();?>index.php/Page/hapus_data_calon",
+                        url:"<?php echo base_url();?>Page/hapus_data_calon",
                         method : "POST",
                         data: {id_kandidat: id_kandidat, foto: foto},
                         dataType : 'json',
@@ -286,8 +303,42 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade bd-example-modal-lg" id="modalEditVisiMisi_<?= $row['id_kandidat']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Visi dan Misi</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="text-align: center">
+                            <form method ="POST" enctype="multipart/form-data" action= "<?= base_url(); ?>Page/editVisiMisi/<?= $row['id_kandidat']; ?>">
+                            <div class="form-group">
+                                <label for="visimisi">Visi dan Misi</label>
+                                <textarea id="visimisi" name="visimisi"><?=$row['visimisi']?></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <?php endforeach; ?>
     <?php endif; ?>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            menubar: false,
+            plugins: "link code lists",
+            toolbar: "undo redo | styleselect | forecolor | bold italic | alignleft aligncenter alignright alignjustify | numlist bullist | outdent indent | link | code",
+
+            toolbar_mode: 'floating',
+        });
+    </script>
 </body>
 
 </html>
