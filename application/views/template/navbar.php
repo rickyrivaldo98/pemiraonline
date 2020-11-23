@@ -8,10 +8,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url() . 'page/index' ?>">Home <span class="sr-only">(current)</span></a>
+                <?php if($this->session->userdata('akses') == 'pemilih') : ?>
+                    <a class="nav-link" href="<?php echo base_url() . 'page/dashboardUser' ?>">
+                <?php else : ?>
+                    <a class="nav-link" href="<?php echo base_url() . 'page/dashboardAdmin' ?>">
+                <?php endif; ?>
+                    Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="https://www.instagram.com/pemirafsm_2020/">Contact</a>
                 </li>
                 <?php if ($this->session->userdata('login') != true) : ?>
                     <li class="nav-item">

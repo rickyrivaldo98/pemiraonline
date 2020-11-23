@@ -189,7 +189,7 @@
                             icon: 'error',
                             title: 'Oops...',
                             text: 'Maaf NIM anda tidak terdaftar sebagai Mahasiswa Aktif 2020',
-                            footer: '<a href="#">Hubungi Operator</a>'
+                            footer: '<a href="https://www.instagram.com/pemirafsm_2020/">Hubungi Operator</a>'
                         });
                     }
                     

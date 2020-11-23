@@ -1029,6 +1029,9 @@ class Page extends CI_Controller
 
 	public function tambah_pemilih()
 	{
+		if ($this->session->userdata('login') != true || $this->session->userdata('akses') == 'pemilih' ){
+			redirect('Page/index');
+		}
 		$this->load->model('m_departemen');
 		$this->load->model('m_pemilih');
 		$data['departemen']= $this->m_departemen->getDepartemen();
