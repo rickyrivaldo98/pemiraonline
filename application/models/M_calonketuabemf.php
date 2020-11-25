@@ -5,15 +5,15 @@ class M_calonketuabemf extends CI_Model
 	{
 		$this->db->query("INSERT INTO kandidat_bemf (id_kandidat, nim_ketua, nama_ketua, departemen_ketua, nim_wakil, nama_wakil, departemen_wakil, suara, foto, no_paslon, visimisi)
         VALUES ('$id', '$nim', '$nama', '$departemen', '$nim2', '$nama2', '$departemen2', 0, '$foto', 0, '$visimisi')");
-    }
-    
-    function getCalonBemF($nim, $nim2)
+	}
+
+	function getCalonBemF($nim, $nim2)
 	{
 		$query = $this->db->query("SELECT * FROM kandidat_bemf WHERE nim_ketua='$nim' OR nim_wakil='$nim2' OR nim_ketua='$nim2' OR nim_wakil='$nim' ");
 		return $query;
-    }
-    
-    function getDataCalon()
+	}
+
+	function getDataCalon()
 	{
 		return $this->db->query("SELECT * FROM kandidat_bemf ORDER BY no_paslon ASC")->result_array();
 	}
@@ -55,10 +55,13 @@ class M_calonketuabemf extends CI_Model
 
 	function updateNomor($id_kandidat, $no_paslon)
 	{
-		for($i=0; $i<count($id_kandidat); $i++) {
+		for ($i = 0; $i < count($id_kandidat); $i++) {
 			$this->db->query("UPDATE kandidat_bemf SET no_paslon = '$no_paslon[$i]' WHERE id_kandidat = '$id_kandidat[$i]'");
 		}
 	}
-    
 
+	function getPemenang()
+	{
+		return $this->db->query("SELECT * FROM kandidat_bemf where suara = (SELECT MAX(suara) from kandidat_bemf)")->result_array();
+	}
 }
